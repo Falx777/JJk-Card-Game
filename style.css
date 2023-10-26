@@ -1,0 +1,147 @@
+body{
+
+   background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("bkg.jpg");
+    display:flex;
+  justify-content:center;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 00%;
+	}
+}
+
+.backgroundD{
+  background-image: linear-gradient(120deg, rgb(30,30,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));
+/*  background-image: linear-gradient(120deg, rgb(1,243,239), 20%, rgb(1,122,124), 40%, rgb(84,195,223)); */
+  position:absolute;
+  padding:20px;
+  opacity:0.9;
+  margin-top:20px;
+  border-style:outset none outset none;
+  border-width:10px;
+  border-radius:10px;
+  background-size: 300% 300%;
+  transition:0.5s;
+}
+
+.backgroundD:hover{
+  transform:scale(1.1);
+  animation:gradient 4s;
+  opacity:1;
+}
+
+.backgroundD2{
+  display:flex;
+  justify-content:center;
+}
+
+.backgroundD2 img{
+  width:80%;  
+}
+
+.imgTitle{
+  width:100%;
+}
+
+section{
+  margin-top:400px;
+}
+
+.btn{
+  border-radius:10px;
+  margin-inline:20%;
+  border-style:outset;
+  border-width:7px;
+  cursor:pointer;
+  border-color:black;
+  opacity:1;
+  color:white;
+  font-size:12px;
+  font-family:fantasy;
+  text-align:center;
+  padding:2%;
+  margin-bottom:2%;
+  transition:0.5s;
+}
+
+.btn:hover{
+  transform:scale(1.2);
+}
+
+.btn:active{
+  transform:scale(0.8);
+}
+
+.btn img{
+  width:80%;
+}
+
+.btn1xbot{
+  
+  background-image: linear-gradient(60deg, rgb(143,239,1), 20%, rgb(1,122,84), 40%, rgb(84,223,95));
+}
+
+.btn1x1{
+  background-image: linear-gradient(120deg, rgb(1,243,239), 20%, rgb(1,122,124), 40%, rgb(84,195,223));
+  /*
+  background-image: linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22)); 
+  */
+}
+
+.btndif{
+  background-image: linear-gradient(240deg, rgb(187,24,27), 20%, rgb(205,3,5), 50%, rgb(178,20,22));
+  margin-inline:30%;
+}
+
+
+.btnTutorial{
+  background-image: linear-gradient(120deg, rgb(30,30,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));
+  margin-inline:40%;
+}
+
+.btnTutorial img{
+  width:100px;
+}
+
+@media screen and (max-height: 400px){
+  body{
+     transform:scale(0.8);
+  }
+}
+
+.tut{
+  position:fixed;
+  margin:1%;
+  width:80%;
+  background-color: white;
+  font-size:16px;
+  font-family:'Courier New', Courier, monospace;
+  padding:1%;
+  border-radius:10px;
+  border-style:outset;
+  border-width:7px;
+  cursor:pointer;
+  border-color:black;
+  color:black; 
+  text-align:center;
+  background-color: lightgray;
+}
+
+.bdtutorial{
+  scroll-behavior: smooth;
+}
+a{
+  scroll-behavior: smooth;
+}

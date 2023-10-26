@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>JujutsuKaisenCardGame</title>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<figure onloadeddata="load_cards(1)">
+  <section class="space_buttons player2">
+    <!--carta do oponente-->
+    <div class="player_card_on card_player2 card_player2_">
+      <span class="life"></span><meter min=0 max=200 value=200 id="vida2"></meter>
+      <div>
+        <img src="" alt="" class="image_card" id="img_active_player2">
+      </div>
+      <div class="dtool_player2">
+        <img src= "https://github.com/Falx777/my/blob/main/tool5.png?raw=true" alt="" class="button_suit" id="tool_player2">
+      </div>
+      <div>
+        <h2 id="name_player2"></h2>
+        <table class="text_on">
+          <tr>
+            <td><pre>Energ. Ama.: </pre></td>
+            <td class="tdp"> <span class="energiaA"></span> <span class='plus_tools_energy' id='plus_energiaA2'></span></td>
+          </tr>  
+          
+          <tr>
+            <td><pre>E.A. Reversa:</pre></td>
+            <td class="tdp"> <span class="energiaAR"></span> </td>
+          </tr>
+          
+          <tr>
+            <td><pre>Defesa:</pre></td>
+            <td class="tdp"> <span class="defesa"></span> </td>
+          </tr> 
+          
+          <tr>
+            <td><pre>Ataque:</pre></td>
+            <td class="tdp"> <span class="ataque"></span> <span class='plus_tools_att' id='plus_attA2'></td>
+          </tr> 
+        </table>
+      </div>
+    </div>
+    <!--botoes-->
+    <div class="space_buttons space_player2">
+      <div class="attack_btn atk_btn2 btn2 btn2_vs_player" onclick="attack(2)">
+        <img src="https://github.com/Falx777/my/blob/main/Hand5.png?raw=true" alt="">
+        <h3>Atacar</h3>
+      </div>
+      <div class="curse_btn crs_btn2 btn2 btn2_vs_player" onclick="curse(2)">
+        <img src="https://github.com/Falx777/my/blob/main/Hand6.png?raw=true" alt="">
+        <h3 >Amaldiçoar</h3>
+      </div>
+      <div class="dodge_btn btn2 btn2_vs_player" onclick="dodge(2)">
+         <img src="https://github.com/Falx777/my/blob/main/Hand7.png?raw=true" alt="">
+        <h3>Esquivar</h3>
+      </div>
+      <div class="special_btn spc_btn2 btn2 btn2_vs_player" onclick="spec(2)">
+        <img src="https://github.com/Falx777/my/blob/main/Hand8.png?raw=true" alt="">
+        <h3>Especial</h3>
+      </div> 
+      <div onclick="switch_tool(1,2)" class="tool_btn spc_btn2 btn2 btn2_vs_player">
+        <img src="https://github.com/Falx777/my/blob/main/tool1.png?raw=true" alt="" class="" id="tool1_p2">
+      </div>
+      <div onclick="switch_tool(2,2)" class="tool_btn spc_btn2 btn2 btn2_vs_player">
+        <img src="https://github.com/Falx777/my/blob/main/tool2.png?raw=true" alt="" class="" id="tool2_p2">
+      </div>
+      <div onclick="switch_tool(3,2)" class="tool_btn spc_btn2 btn2 btn2_vs_player">
+        <img src="https://github.com/Falx777/my/blob/main/Hand9.png?raw=true" alt="" class="" id="tool3_p2">
+      </div>
+      <!--
+      <div class="instrument_btn inst_btn2 btn2">
+         <img src="https://github.com/Falx777/my/blob/main/Hand10.png?raw=true" alt="">
+        <h3>Instrumento</h3>
+      </div>
+      -->
+    </div>
+  </section>
+  
+  <section class="space_buttons player1">
+     <!--botoes--> 
+     <div class="space_buttons space_player1">
+       <div onclick="switch_tool(1,1)" class="tool_btn spc_btn2 btn1">
+        <img src="https://github.com/Falx777/my/blob/main/tool3.png?raw=true" alt="" class="" id="tool1_p1">
+      </div>
+      <div onclick="switch_tool(2,1)" class="tool_btn spc_btn2 btn1">
+        <img src="https://github.com/Falx777/my/blob/main/tool4.png?raw=true" alt="" class="" id="tool2_p1">
+      </div>
+      <div onclick="switch_tool(3,1)" class="tool_btn spc_btn2 btn1">
+        <img src="https://github.com/Falx777/my/blob/main/Hand9.png?raw=true" alt="" class="" id="tool3_p1">
+      </div>
+       
+      <div class="attack_btn btn1" onclick="attack(1)">
+        <img src="https://github.com/Falx777/my/blob/main/Hand1.png?raw=true" alt="">
+        <h3>Atacar</h3>
+      </div>
+      <div class="curse_btn btn1" onclick="curse(1)">
+        <img src="https://github.com/Falx777/my/blob/main/Hand4.png?raw=true" alt="">
+        <h3>Amaldiçoar</h3>
+      </div>
+      <div class="dodge_btn btn1" onclick="dodge(1)">
+        <img src="https://github.com/Falx777/my/blob/main/Hand3.png?raw=true" alt="">
+        <h3>Esquivar</h3>
+      </div>
+      <div class="special_btn btn1" onclick="spec(1)">
+        <img src="https://github.com/Falx777/my/blob/main/Hand2.png?raw=true" alt="">
+        <h3>Especial</h3>
+      </div>
+
+       <!--
+      <div class="instrument_btn btn1" onclick="use_tool()">
+        <img src="https://github.com/Falx777/my/blob/main/Hand9.png?raw=true" alt="">
+        <h3>Instrumento</h3>
+      </div>
+      -->
+    </div>
+    <!--carta do jogador-->
+    <div class="player_card_on player2_card">
+      <span class="life"></span><meter min=0 max=200 value=200 id="vida1"></meter>
+      <div>
+        <img src="" alt="" class="image_card" id="img_active_player1"> 
+      </div>
+      <div class="dtool_player1">
+        <img src="https://github.com/Falx777/my/blob/main/tool5.png?raw=true" alt="" class="button_suit" id="tool_player1">
+      </div>
+        <div>
+          <h2 id="name_player1"></h2>
+        <table class="text_on">
+          <tr>
+<!--            <td><pre>               </pre></td> -->
+          </tr>
+          <tr>
+            <td><pre>Energ. Ama.: </pre></td>
+            <td class="tdp"> <span class="energiaA"></span> <span class='plus_tools_energy' id='plus_energiaA1'></span></td>
+          </tr>  
+          
+          <tr>
+            <td><pre>E.A. Reversa:</pre></td>
+            <td class="tdp"> <span class="energiaAR"></span> </td>
+          </tr>
+          
+          <tr>
+            <td><pre>Defesa:</pre></td>
+            <td class="tdp"> <span class="defesa"></span> </td>
+          </tr> 
+          
+          <tr>
+            <td><pre>Ataque:</pre></td>
+            <td class="tdp"> <span class="ataque"></span><span class='plus_tools_att' id='plus_attA1'></span> </td>
+          </tr>  
+        </table>
+        </div>
+      </div>
+    </figure>
+  </section>
+</figure>
+
+<!--Deck-->
+<section class="deck_player1" >
+  <div class="flip-container" id="card_deck1">
+  <div class="flipper">
+    <div class="front">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJK.png?raw=true" width=100/>
+    </div>
+    <div class="back">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJKfront.png?raw=true" width=100/>
+      <img src="" alt="" class="image_card_deck" id="image_card_deck_player_1_1">
+            <h2 class="name_deck" id="name_card_deck_player1_1"></h2>
+            <span class="select_card" onclick="select_card(1,1)">select</span>
+    </div>
+  </div>
+</div>
+  
+  <div class="flip-container" id="card_deck2">
+  <div class="flipper">
+    <div class="front">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJK.png?raw=true" width=100/>
+    </div>
+    <div class="back">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJKfront.png?raw=true" width=100/>
+       <img src="" alt="" class="image_card_deck" id="image_card_deck_player_1_2">
+            <h2 class="name_deck" id="name_card_deck_player1_2"></h2>
+            <span class="select_card" onclick="select_card(2,1)">select</span>
+    </div>
+  </div>
+</div>
+  
+  <div class="flip-container" id="card_deck3">
+  <div class="flipper">
+    <div class="front">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJK.png?raw=true" width=100/>
+    </div>
+    <div class="back">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJKfront.png?raw=true" width=100/>
+      <img src="" alt="" class="image_card_deck" id="image_card_deck_player_1_3">
+            <h2 class="name_deck" id="name_card_deck_player1_3"></h2>
+            <span class="select_card" onclick="select_card(3,1)">select</span>
+    </div>
+  </div>
+</div>
+  
+  <div class="flip-container" id="card_deck4">
+  <div class="flipper">
+    <div class="front">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJK.png?raw=true" width=100/>
+    </div>
+    <div class="back">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJKfront.png?raw=true" width=100/>
+      <img src="g" alt="" class="image_card_deck" id="image_card_deck_player_1_4">
+            <h2 class="name_deck" id="name_card_deck_player1_4"></h2>
+            <span class="select_card" onclick="select_card(4,1)">select</span>
+    </div>
+  </div>
+</div>
+  
+  <div class="flip-container" id="card_deck5">
+  <div class="flipper">
+    <div class="front">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJK.png?raw=true" width=100/>
+    </div>
+    <div class="back">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJKfront.png?raw=true" width=100/>
+      <img src="" alt="" class="image_card_deck" id="image_card_deck_player_1_5">
+            <h2 class="name_deck" id="name_card_deck_player1_5"></h2>
+            <span class="select_card" onclick="select_card(5,1)">select</span>
+    </div>
+  </div>
+</div>
+  
+  <div class="flip-container" id="card_deck6">
+  <div class="flipper">
+    <div class="front">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJK.png?raw=true" width=100/>
+    </div>
+    <div class="back">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJKfront.png?raw=true" width=100/>
+       <img src="" alt="" class="image_card_deck" id="image_card_deck_player_1_6">
+            <h2 class="name_deck" id="name_card_deck_player1_6"></h2>
+            <span class="select_card" onclick="select_card(6,1)">select</span>
+    </div>
+  </div>
+</div>
+  
+  <div class="flip-container" id="card_deck7">
+  <div class="flipper">
+    <div class="front">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJK.png?raw=true" width=100/>
+    </div>
+    <div class="back">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJKfront.png?raw=true" width=100/>
+      <img src="" alt="" class="image_card_deck" id="image_card_deck_player_1_7">
+            <h2 class="name_deck" id="name_card_deck_player1_7"></h2>
+      <span class="select_card" onclick="select_card(7,1)">select</span>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section class="deck_player2_flip" >
+  <div class="flip-container" id="card_deck1_2">
+  <div class="flipper">
+    <div class="front">
+      <img src="https://github.com/Falx777/my/blob/main/Card2%20JJK.png?raw=true" width=100/>
+    </div>
+    <div class="back">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJKfront.png?raw=true" width=100/>
+      <img src="" alt="" class="image_card_deck" id="image_card_deck_player_2_1">
+            <h2 class="name_deck" id="name_card_deck_player2_1"></h2>
+      <span class="select_card" onclick="select_card(1,2)">select</span>
+    </div>
+  </div>
+</div>
+  
+  <div class="flip-container" id="card_deck2_2">
+  <div class="flipper">
+    <div class="front">
+      <img src="https://github.com/Falx777/my/blob/main/Card2%20JJK.png?raw=true" width=100/>
+    </div>
+    <div class="back">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJKfront.png?raw=true" width=100/>
+            <img src="" alt="" class="image_card_deck" id="image_card_deck_player_2_2">
+            <h2 class="name_deck" id="name_card_deck_player2_2"></h2>
+      <span class="select_card" onclick="select_card(2,2)">select</span>
+    </div>
+  </div>
+</div>
+  
+  <div class="flip-container" id="card_deck3_2">
+  <div class="flipper">
+    <div class="front">
+      <img src="https://github.com/Falx777/my/blob/main/Card2%20JJK.png?raw=true" width=100/>
+    </div>
+    <div class="back">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJKfront.png?raw=true" width=100/>
+                  <img src="" alt="" class="image_card_deck" id="image_card_deck_player_2_3">
+            <h2 class="name_deck" id="name_card_deck_player2_3"></h2>
+      <span class="select_card" onclick="select_card(3,2)">select</span>
+    </div>
+  </div>
+</div>
+  
+  <div class="flip-container" id="card_deck4_2">
+  <div class="flipper">
+    <div class="front">
+      <img src="https://github.com/Falx777/my/blob/main/Card2%20JJK.png?raw=true" width=100/>
+    </div>
+    <div class="back">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJKfront.png?raw=true" width=100/>
+      <img src="" alt="" class="image_card_deck" id="image_card_deck_player_2_4">
+            <h2 class="name_deck" id="name_card_deck_player2_4"></h2>
+      <span class="select_card" onclick="select_card(4,2)">select</span>
+    </div>
+  </div>
+</div>
+  
+  <div class="flip-container" id="card_deck5_2">
+  <div class="flipper">
+    <div class="front">
+      <img src="https://github.com/Falx777/my/blob/main/Card2%20JJK.png?raw=true" width=100/>
+    </div>
+    <div class="back">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJKfront.png?raw=true" width=100/>
+            <img src="" alt="" class="image_card_deck" id="image_card_deck_player_2_5">
+            <h2 class="name_deck" id="name_card_deck_player2_5"></h2>
+      <span class="select_card" onclick="select_card(5,2)">select</span>
+    </div>
+  </div>
+</div>
+  
+  <div class="flip-container" id="card_deck6_2">
+  <div class="flipper">
+    <div class="front">
+      <img src="https://github.com/Falx777/my/blob/main/Card2%20JJK.png?raw=true" width=100/>
+    </div>
+    <div class="back">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJKfront.png?raw=true" width=100/>
+                  <img src="" alt="" class="image_card_deck" id="image_card_deck_player_2_6">
+            <h2 class="name_deck" id="name_card_deck_player2_6"></h2>
+      <span class="select_card" onclick="select_card(6,2)">select</span>
+    </div>
+  </div>
+</div>
+  
+  <div class="flip-container" id="card_deck7_2">
+  <div class="flipper">
+    <div class="front">
+      <img src="https://github.com/Falx777/my/blob/main/Card2%20JJK.png?raw=true" width=100/>
+    </div>
+    <div class="back">
+      <img src="https://github.com/Falx777/my/blob/main/Card%20JJKfront.png?raw=true" width=100/>
+      <img src="" alt="" class="image_card_deck" id="image_card_deck_player_2_7">
+            <h2 class="name_deck" id="name_card_deck_player2_7"></h2>
+      <span class="select_card" onclick="select_card(7,2)">select</span>
+    </div>
+  </div>
+</div>
+</section>
+
+ <section class="center">
+    <!--<div>poder</div>-->
+   <div id="arrow">
+     <img src="https://github.com/Falx777/my/blob/main/gifmaker_me.gif?raw=true" alt="" class="img_arrow">
+     <!--
+     <img src="https://github.com/Falx777/my/blob/main/Image%20characters/toy.png?raw=true" alt="" class="img_arrow img_arrow2"> -->
+   </div>
+  </section>
+
+<section class="tools_deck">
+  <!--
+      <section class="tools_player2">  
+      <div onclick="switch_tool(1,2)">
+        <img src="https://github.com/Falx777/my/blob/main/tool1.png?raw=true" alt="" class="" id="tool1_p2">
+        </div>
+        <div onclick="switch_tool(2,2)">
+        <img src="https://github.com/Falx777/my/blob/main/tool2.png?raw=true" alt="" class="" id="tool2_p2">
+      </div>
+         <div onclick="switch_tool(3,2)">
+        <img src="https://github.com/Falx777/my/blob/main/Hand9.png?raw=true" alt="" class="" id="tool3_p2">
+          </div>
+      </section>
+-->
+  
+  <!--
+      <section class="tools_player1">
+          <div onclick="switch_tool(1,1)">
+        <img src="https://github.com/Falx777/my/blob/main/tool3.png?raw=true" alt="" class="" id="tool1_p1">
+          </div>
+          <div onclick="switch_tool(2,1)">
+        <img src="https://github.com/Falx777/my/blob/main/tool4.png?raw=true" alt="" class="" id="tool2_p1">
+          </div>
+         <div onclick="switch_tool(3,1)">
+        <img src="https://github.com/Falx777/my/blob/main/Hand9.png?raw=true" alt="" class="" id="tool3_p1">
+          </div>
+       </section>
+  -->
+</section>
+<span id="damageOutput">-10</span>
+
+<!--
+<audio src="https://github.com/Falx777/my/blob/main/Image%20characters/Your%20Battle%20Is%20My%20Battle.ogg?raw=true"  type="audio/ogg" preload='auto' loop='true' id="aud"></audio>
+-->
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
