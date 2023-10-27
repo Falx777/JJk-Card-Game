@@ -4,6 +4,7 @@ body{
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
+	position: fixed
 }
 
 @keyframes spam {
