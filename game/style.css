@@ -385,7 +385,6 @@ td pre{
 @media screen and (max-width: 400px){
   body{
     overflow: hidden;
-  position: fixed;
     transform: scale(0.8);
     margin-top:5.5%;
   }
