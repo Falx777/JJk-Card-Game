@@ -393,9 +393,9 @@ td pre{
   .end_game{
   position:absolute;
     height:740%;
-    width:120%;
+    width:100%;
     margin-top:-11%;
-    margin-left:-16%;
+    margin-left:-40%;
   }
   
   
@@ -932,11 +932,11 @@ td pre{
 .end_game_imageWidth{
   width:650px;
   height:120px;
-  margin-top:100%;
+  margin-top:80%;
  background-image: radial-gradient(circle, rgb(150,50,50),rgb(200,50,50),transparent);
   border-style: solid none solid none ;
   border-width:10px;
-  margin-left:-10%;
+  margin-left:5%;
   transform:scale(0.7);
   animation:spamWidth 3s;
 }
