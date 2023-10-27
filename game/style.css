@@ -4,7 +4,6 @@ body{
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
-	
 }
 
 @keyframes spam {
@@ -387,6 +386,7 @@ td pre{
     overflow: hidden;
     transform: scale(0.8);
     margin-top:5.5%;
+    position:fixed;
   }
   
   
@@ -402,25 +402,25 @@ td pre{
   
   .player1{
     position:absolute; 
-    left:-15%;
-    top:350%;
-    margin-top:53%;
+    left:-78%;
+    top:140%;
+    margin-top:50%;
   }
   
   .space_player2{
-   transform:translate(-22%,65%) rotate(180deg);
+   transform:translate(-30%,65%) rotate(180deg);
   }
   
   .card_player2{
-    transform:translate(-120%,130%) rotate(0deg);
+    transform:translate(-220%,130%) rotate(0deg);
   }
   
   .card_player2:hover{
-    transform:translate(-120%,115%) rotate(0deg) scale(1.2);
+    transform:translate(-220%,115%) rotate(0deg) scale(1.2);
   }
   
   .space_player1{
-    margin-left:-30%;  
+    transform:translate(73%,-25%);  
   }
   
   .player_card_on{
@@ -448,17 +448,17 @@ td pre{
   
   .deck_player1{
     position:absolute;
-    left:10%;
-    top:653%;
+    left:-3%;
+    top:528%;
   }
   
   .deck_player1 div{
-  margin-left:-15%;
+  margin-left:-7%;
   }
   
   .deck_player2_flip{
-    transform:translate(-68%,0%) rotate(180deg);
-    margin-top:14%;
+    transform:translate(-85%,0%) rotate(180deg);
+    margin-top:9%;
   }
   
   .deck_player2_flip div{
@@ -587,16 +587,16 @@ td pre{
   #damageOutput{
   position:absolute;
   padding:10%;
-  left:34%;
-  top:250%;
+  left:5%;
+  top:245%;
 } 
   
   .card_player2_{
-    transform:translate(-115%,130%) rotate(180deg);
+    transform:translate(-218%,130%) rotate(180deg);
   }
 
  .card_player2_:hover{
-    transform:translate(-115%,130%) rotate(180deg) scale(1.2);
+    transform:translate(-218%,130%) rotate(180deg) scale(1.2);
   }
   
 }
@@ -607,14 +607,14 @@ td pre{
    /*
    from{transform: translate(300%,0%);visibility:visible}
   to{transform: translate(-350%,-70%);} */
-  from{transform: translate(25%,-60%);visibility:visible}
-  to{transform: translate(-50%,-90%);} 
+  from{transform: translate(-80%,-90%);visibility:visible}
+  to{transform: translate(-190%,-115%);} 
 }
 
  @keyframes arrow_attack2Width {
   
-  from{transform: translate(-120px,-90%) ;visibility:visible}
-  to{transform: translate(25%,-60%)} 
+  from{transform: translate(-200%,-115%) ;visibility:visible}
+  to{transform: translate(-120%,-90%)} 
 }
 
 /* poder */
@@ -745,8 +745,14 @@ td pre{
 
 
 @keyframes move_toolWidth{
+  /*
   from{transform:translate(0%,-170px)}
   to{transform:translate(-180%,-130px);}
+  */
+    from{transform:translate(0%,-170px);}
+
+    to{transform:translate(-180%,-100px)}
+
 }
 
 @keyframes move_tool2Width{
@@ -945,6 +951,15 @@ td pre{
 
 
  @keyframes move_tool2Width_{
-    from{transform:translate(0%,-170px);}
+        from{transform:translate(0%,-170px);}
+
     to{transform:translate(-180%,-100px)}
   }
+  
+  @keyframes move_toolWidth_{
+    from{transform:translate(0%,-170px);}
+
+    to{transform:translate(-180%,-100px)}
+
+}
+
