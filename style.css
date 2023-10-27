@@ -107,7 +107,7 @@ section{
 
 
 .btnTutorial{
-  background-image: linear-gradient(120deg, rgb(30,30,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));
+  background-image: linear-gradient(120deg, rgb(30,30,102), 20%, rgb(153, 102, 255), 40%, rgb(30,30,102));
   margin-inline:40%;
 }
 
