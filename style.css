@@ -121,6 +121,13 @@ section{
   }
 }
 
+@media screen and (max-width: 400px){
+  .btnTutorial img{
+  	width:100%;
+  	}
+}
+
+
 .tut{
   position:fixed;
   margin:1%;
