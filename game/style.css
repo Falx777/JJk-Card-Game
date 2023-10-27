@@ -402,7 +402,7 @@ td pre{
   
   .player1{
     position:absolute; 
-    left:-78%;
+    left:-71.5%;
     top:140%;
     margin-top:50%;
   }
@@ -412,11 +412,11 @@ td pre{
   }
   
   .card_player2{
-    transform:translate(-220%,130%) rotate(0deg);
+    transform:translate(-210%,130%) rotate(0deg);
   }
   
   .card_player2:hover{
-    transform:translate(-220%,115%) rotate(0deg) scale(1.2);
+    transform:translate(-210%,115%) rotate(0deg) scale(1.2);
   }
   
   .space_player1{
@@ -592,11 +592,11 @@ td pre{
 } 
   
   .card_player2_{
-    transform:translate(-218%,130%) rotate(180deg);
+    transform:translate(-210%,130%) rotate(180deg);
   }
 
  .card_player2_:hover{
-    transform:translate(-218%,130%) rotate(180deg) scale(1.2);
+    transform:translate(-210%,130%) rotate(180deg) scale(1.2);
   }
   
 }
