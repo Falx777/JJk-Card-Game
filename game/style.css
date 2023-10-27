@@ -408,7 +408,7 @@ td pre{
   }
   
   .space_player2{
-   transform:translate(-30%,65%) rotate(180deg);
+   transform:translate(-25%,65%) rotate(180deg);
   }
   
   .card_player2{
@@ -420,7 +420,7 @@ td pre{
   }
   
   .space_player1{
-    transform:translate(73%,-25%);  
+    transform:translate(68%,-25%);  
   }
   
   .player_card_on{
