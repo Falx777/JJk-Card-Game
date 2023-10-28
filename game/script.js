@@ -486,9 +486,9 @@ var rangeDeck = 0
 document.body.onload = () => {
   
       if(dificulty==1){
-        rangeDeck = 27
+        rangeDeck = 28
       }else{
-        rangeDeck = 32
+        rangeDeck = 33
       }  
        
       //sem as cartas OP:
