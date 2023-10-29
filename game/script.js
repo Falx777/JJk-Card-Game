@@ -38,13 +38,14 @@ characters = [{nome: 'Young Gojo', vida: 150, energiaA: -300, energiaAR:0, defes
 cursed_tools = [{energiaA: -40, ataque: 5, id:1,life:45}, {energiaA: -60, ataque: 10, id:2,life:70}, {energiaA: -60, ataque: 10, id:3,life:70},
                {energiaA: -100, ataque: 0, id:4,life:100}, {energiaA: -40, ataque: 15, id:5,life:55}, {energiaA: -30, ataque: 5, id:6,life:35},
                {energiaA: -50, ataque: 10, id:7,life:60}, {energiaA: -80, ataque: 0, id:8,life:80}, {energiaA: -80, ataque: 15, id:9,life:95},
-               {energiaA: -100, ataque: 20, id:10,life:120}, {energiaA: 0, ataque: 0, id:11,life:-1}];
+               ,{energiaA: -100, ataque: 20, id:10,life:120},{energiaA: -80, ataque: 12, id:11,life:102},{energiaA: -20, ataque: 20, id:12,life:40}, 
+		{energiaA: -60, ataque: 10, id:13,life:70},{energiaA: 0, ataque: 0, id:14,life:-1}];
 
 backgroundImages = ['bkg1.png', 'bkg2.png','bkg3.jpg','bkg4.png','bkg5.png']
 
 //backgroundImages = ['https://i.redd.it/vr72t8onoaq81.png', 'https://preview.redd.it/i278jvdyli471.png?width=1080&crop=smart&auto=webp&s=818e2415a10376054a2ffa20efd14dac2d049649','https://i.pinimg.com/originals/25/1f/49/251f49b9061e3ef0b3a862135258f151.jpg']
 
-ind_background = Math.floor(Math.random() * 3)
+ind_background = Math.floor(Math.random() * 5)
 
 document.body.style.cssText = "background-image: url("+backgroundImages[ind_background]+");"
 
