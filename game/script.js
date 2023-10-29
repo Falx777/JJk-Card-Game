@@ -241,9 +241,9 @@ function attack(player_id){
 }
 
 var toolsp1 = []
-var current_tool1 = cursed_tools[10]
+var current_tool1 = cursed_tools[13]
 var toolsp2 = []
-var current_tool2 = cursed_tools[10]
+var current_tool2 = cursed_tools[13]
 function switch_tool(tool_id,player_id){
   
   if(player_id ==1){
