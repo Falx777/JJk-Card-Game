@@ -15,30 +15,32 @@ characters = [{nome: 'Young Gojo', vida: 150, energiaA: -300, energiaAR:0, defes
              {nome: 'Inumaki', vida: 130, energiaA: -120, energiaAR:0, defesa: 15, ataque: 20, estilo:'humano', id:14},
              {nome: 'Nanami', vida: 170, energiaA: -170, energiaAR:0, defesa: 18, ataque: 18, estilo:'humano', id:15},
              {nome: 'Yuki', vida: 170, energiaA: -220, energiaAR:110, defesa: 25, ataque: 20, estilo:'humano', id:16},
-             {nome: 'Kashimo', vida: 200, energiaA: -200, energiaAR:0, defesa: 10, ataque: 20, estilo:'humano', id:17},
+             {nome: 'Kashimo', vida: 200, energiaA: -300, energiaAR:0, defesa: 10, ataque: 28, estilo:'humano', id:17},
              {nome: 'Toji', vida: 150, energiaA: 000, energiaAR:000, defesa: 40, ataque: 30, estilo:'humano', id:18},
              {nome: 'Miguel', vida: 150, energiaA: -110, energiaAR:0, defesa: 10, ataque: 12, estilo:'humano', id:19},
              {nome: 'Choso', vida: 160, energiaA: -150, energiaAR:0, defesa: 15, ataque: 15, estilo:'humano', id:20},
-             {nome: 'Panda', vida: 160, energiaA: -100, energiaAR:0, defesa: 20, ataque: 18, estilo:'n_humano', id:21},
+             {nome: 'Panda', vida: 160, energiaA: -100, energiaAR:0, defesa: 20, ataque: 18, estilo:'humano', id:21},
              {nome: 'Mahito', vida: 170, energiaA: -175, energiaAR:0, defesa: 25, ataque: 25, estilo:'n_humano', id:22},
              {nome: 'Jogo', vida: 150, energiaA: -160, energiaAR:0, defesa: 20, ataque: 20, estilo:'n_humano', id:23},
              {nome: 'Hanami', vida: 170, energiaA: -140, energiaAR:0, defesa: 25, ataque: 15, estilo:'n_humano', id:24},
-             {nome: 'Hakari', vida: 180, energiaA: -250, energiaAR:125, defesa: 25, ataque: 25, estilo:'humano', id:25},
+             {nome: 'Hakari', vida: 180, energiaA: -280, energiaAR:140, defesa: 25, ataque: 28, estilo:'humano', id:25},
              {nome: 'Gakuganji', vida: 120, energiaA: -200, energiaAR:0, defesa: 10, ataque: 30, estilo:'humano', id:26},
              {nome: 'Kamo', vida: 140, energiaA: -120, energiaAR:0, defesa: 15, ataque: 15, estilo:'humano', id:27},
-             {nome: 'Muta', vida: 60, energiaA: -600, energiaAR:0, defesa: 30, ataque: 20, estilo:'humano', id:28},
-             {nome: 'Kenjaku', vida: 250, energiaA: -400, energiaAR:0, defesa: 30, ataque: 60, estilo:'n_humano', id:29},
-             {nome: 'Gojo (Adult)', vida: 250, energiaA: -300, energiaAR:150, defesa: 35, ataque: 70, estilo:'humano', id:30},
-             {nome: 'Sukuna (20 f)', vida: 250, energiaA: -350, energiaAR:175, defesa: 30, ataque: 80, estilo:'humano', id:31},
-             {nome: 'Rika', vida: 250, energiaA: -350, energiaAR:0, defesa: 28, ataque: 70, estilo:'n_humano', id:32},
-             {nome: 'Yuta', vida: 250, energiaA: -600, energiaAR:300, defesa: 30, ataque: 80, estilo:'humano', id:33}];
+	      {nome: 'Dagon', vida: 160, energiaA: -150, energiaAR:0, defesa: 25, ataque: 25, estilo:'n_humano', id:28},
+	      {nome: 'Muta', vida: 60, energiaA: -600, energiaAR:0, defesa: 30, ataque: 20, estilo:'humano', id:29},
+             {nome: 'Kenjaku', vida: 250, energiaA: -400, energiaAR:0, defesa: 30, ataque: 60, estilo:'n_humano', id:30},
+             {nome: 'Gojo (Adult)', vida: 250, energiaA: -300, energiaAR:150, defesa: 35, ataque: 70, estilo:'humano', id:31},
+             {nome: 'Sukuna (20 f)', vida: 250, energiaA: -350, energiaAR:175, defesa: 30, ataque: 80, estilo:'humano', id:32},
+             {nome: 'Rika', vida: 250, energiaA: -350, energiaAR:0, defesa: 28, ataque: 70, estilo:'n_humano', id:33},
+             {nome: 'Yuta', vida: 250, energiaA: -600, energiaAR:300, defesa: 30, ataque: 80, estilo:'humano', id:34},
+	     {nome: 'Mahoraga', vida: 250, energiaA: -300, energiaAR:0, defesa: 35, ataque: 75, estilo:'n_humano', id:35}];
 
 cursed_tools = [{energiaA: -40, ataque: 5, id:1,life:45}, {energiaA: -60, ataque: 10, id:2,life:70}, {energiaA: -60, ataque: 10, id:3,life:70},
                {energiaA: -100, ataque: 0, id:4,life:100}, {energiaA: -40, ataque: 15, id:5,life:55}, {energiaA: -30, ataque: 5, id:6,life:35},
                {energiaA: -50, ataque: 10, id:7,life:60}, {energiaA: -80, ataque: 0, id:8,life:80}, {energiaA: -80, ataque: 15, id:9,life:95},
                {energiaA: -100, ataque: 20, id:10,life:120}, {energiaA: 0, ataque: 0, id:11,life:-1}];
 
-backgroundImages = ['bkg1.png', 'bkg2.png','bkg3.jpg']
+backgroundImages = ['bkg1.png', 'bkg2.png','bkg3.jpg','bkg4.png','bkg5.png']
 
 //backgroundImages = ['https://i.redd.it/vr72t8onoaq81.png', 'https://preview.redd.it/i278jvdyli471.png?width=1080&crop=smart&auto=webp&s=818e2415a10376054a2ffa20efd14dac2d049649','https://i.pinimg.com/originals/25/1f/49/251f49b9061e3ef0b3a862135258f151.jpg']
 
@@ -486,9 +488,9 @@ var rangeDeck = 0
 document.body.onload = () => {
   
       if(dificulty==1){
-        rangeDeck = 28
+        rangeDeck = 29
       }else{
-        rangeDeck = 33
+        rangeDeck = 35
       }  
        
       //sem as cartas OP:
@@ -500,8 +502,8 @@ document.body.onload = () => {
             id_selected.push(nAleatorio);
           }
         }
-        while (id_selected_tools.length < 10) {
-        const nAleatorio = Math.floor(Math.random() * 10) + 1;
+        while (id_selected_tools.length < 13) {
+        const nAleatorio = Math.floor(Math.random() * 13) + 1;
         if (!id_selected_tools.includes(nAleatorio)) {
           id_selected_tools.push(nAleatorio);
         }
