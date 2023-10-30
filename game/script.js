@@ -29,8 +29,8 @@ characters = [{nome: 'Young Gojo', vida: 150, energiaA: -300, energiaAR:0, defes
 	      {nome: 'Dagon', vida: 160, energiaA: -150, energiaAR:0, defesa: 25, ataque: 25, estilo:'n_humano', id:28},
 	      {nome: 'Muta', vida: 60, energiaA: -600, energiaAR:0, defesa: 30, ataque: 20, estilo:'humano', id:29},
              {nome: 'Kenjaku', vida: 250, energiaA: -400, energiaAR:0, defesa: 30, ataque: 60, estilo:'n_humano', id:30},
-             {nome: 'Gojo (Adult)', vida: 250, energiaA: -300, energiaAR:150, defesa: 35, ataque: 70, estilo:'humano', id:31},
-             {nome: 'Sukuna (20 f)', vida: 250, energiaA: -350, energiaAR:175, defesa: 30, ataque: 80, estilo:'humano', id:32},
+             {nome: 'Gojo (Adult)', vida: 250, energiaA: -500, energiaAR:250, defesa: 45, ataque: 75, estilo:'humano', id:31},
+             {nome: 'Sukuna (20 f)', vida: 250, energiaA: -450, energiaAR:225, defesa: 30, ataque: 80, estilo:'humano', id:32},
              {nome: 'Rika', vida: 250, energiaA: -350, energiaAR:0, defesa: 28, ataque: 70, estilo:'n_humano', id:33},
              {nome: 'Yuta', vida: 250, energiaA: -600, energiaAR:300, defesa: 30, ataque: 80, estilo:'humano', id:34},
 	     {nome: 'Mahoraga', vida: 250, energiaA: -300, energiaAR:0, defesa: 35, ataque: 75, estilo:'n_humano', id:35}];
