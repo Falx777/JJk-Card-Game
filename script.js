@@ -2,10 +2,10 @@ var dif = 1
 function dificuldade(){
   var typeDif = ""
   if(dif == 1){
-    dif = 2
+    dif = 3
     typeDif = "med"
   }else if(dif ==2){
-    dif = 3
+    dif = 2
     typeDif = "dif"
   }else{
     dif =1
