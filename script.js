@@ -4,7 +4,7 @@ function dificuldade(){
   if(dif == 1){
     dif = 3
     typeDif = "med"
-  }else if(dif ==2){
+  }else if(dif ==3){
     dif = 2
     typeDif = "dif"
   }else{
