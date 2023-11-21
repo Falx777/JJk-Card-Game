@@ -17,7 +17,7 @@ characters = [{nome: 'Young Gojo', vida: 150, energiaA: -300, energiaAR:0, defes
              {nome: 'Yuki', vida: 170, energiaA: -220, energiaAR:110, defesa: 25, ataque: 28, estilo:'humano', id:16},
              {nome: 'Kashimo', vida: 200, energiaA: -300, energiaAR:0, defesa: 10, ataque: 28, estilo:'humano', id:17},
              {nome: 'Toji', vida: 150, energiaA: 000, energiaAR:000, defesa: 40, ataque: 30, estilo:'humano', id:18},
-             {nome: 'Miguel', vida: 150, energiaA: -110, energiaAR:0, defesa: 10, ataque: 12, estilo:'humano', id:19},
+             {nome: 'Miguel', vida: 150, energiaA: -110, energiaAR:0, defesa: 10, ataque: 20, estilo:'humano', id:19},
              {nome: 'Choso', vida: 160, energiaA: -150, energiaAR:0, defesa: 15, ataque: 15, estilo:'humano', id:20},
              {nome: 'Panda', vida: 160, energiaA: -100, energiaAR:0, defesa: 20, ataque: 18, estilo:'humano', id:21},
              {nome: 'Mahito', vida: 170, energiaA: -175, energiaAR:0, defesa: 25, ataque: 25, estilo:'n_humano', id:22},
@@ -833,7 +833,11 @@ function calc_damage(type_damage, player_id){
           if(vidaRound[j]/2 > vidaPlayer){
             document.getElementsByClassName("life")[j].innerHTML = vida_oponente - (dano - energiaAmal)
             document.getElementById("vida"+c).value = vida_oponente - (dano - energiaAmal)
-            document.getElementsByClassName("defesa")[j].innerHTML = 0
+		  if(defesa < 0){
+			  document.getElementsByClassName("defesa")[j].innerHTML = defesa - 1
+		  }else{
+            		document.getElementsByClassName("defesa")[j].innerHTML = 0		  
+		  }
             document.getElementsByClassName("energiaA")[i].innerHTML = 0
             damage_animation(dano - energiaAmal)
             
