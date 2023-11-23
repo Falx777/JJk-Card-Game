@@ -26,14 +26,16 @@ characters = [{nome: 'Young Gojo', vida: 150, energiaA: -300, energiaAR:0, defes
              {nome: 'Hakari', vida: 180, energiaA: -280, energiaAR:140, defesa: 25, ataque: 28, estilo:'humano', id:25},
              {nome: 'Gakuganji', vida: 120, energiaA: -200, energiaAR:0, defesa: 10, ataque: 30, estilo:'humano', id:26},
              {nome: 'Kamo', vida: 140, energiaA: -120, energiaAR:0, defesa: 15, ataque: 15, estilo:'humano', id:27},
-	      {nome: 'Dagon', vida: 160, energiaA: -150, energiaAR:0, defesa: 25, ataque: 25, estilo:'n_humano', id:28},
-	      {nome: 'Muta', vida: 60, energiaA: -600, energiaAR:0, defesa: 30, ataque: 20, estilo:'humano', id:29},
-             {nome: 'Kenjaku', vida: 250, energiaA: -400, energiaAR:0, defesa: 30, ataque: 60, estilo:'n_humano', id:30},
-             {nome: 'Gojo (Adult)', vida: 250, energiaA: -500, energiaAR:250, defesa: 45, ataque: 75, estilo:'humano', id:31},
-             {nome: 'Sukuna (20 f)', vida: 250, energiaA: -450, energiaAR:225, defesa: 30, ataque: 80, estilo:'humano', id:32},
-             {nome: 'Rika', vida: 250, energiaA: -350, energiaAR:0, defesa: 28, ataque: 70, estilo:'n_humano', id:33},
-             {nome: 'Yuta', vida: 250, energiaA: -600, energiaAR:300, defesa: 30, ataque: 80, estilo:'humano', id:34},
-	     {nome: 'Mahoraga', vida: 250, energiaA: -300, energiaAR:0, defesa: 35, ataque: 75, estilo:'n_humano', id:35}];
+	     {nome: 'Dagon', vida: 160, energiaA: -150, energiaAR:0, defesa: 25, ataque: 25, estilo:'n_humano', id:28},
+	     {nome: 'Muta', vida: 60, energiaA: -600, energiaAR:0, defesa: 30, ataque: 20, estilo:'humano', id:29},
+	     	{nome: 'Haruta', vida: 400, energiaA: -50, energiaAR:0, defesa: 0, ataque: 5, estilo:'humano', id:30},
+             {nome: 'Kenjaku', vida: 250, energiaA: -400, energiaAR:0, defesa: 30, ataque: 60, estilo:'n_humano', id:31},
+             {nome: 'Gojo (Adult)', vida: 250, energiaA: -500, energiaAR:250, defesa: 45, ataque: 75, estilo:'humano', id:32},
+             {nome: 'Sukuna (20 f)', vida: 250, energiaA: -450, energiaAR:225, defesa: 30, ataque: 80, estilo:'humano', id:33},
+             {nome: 'Rika', vida: 250, energiaA: -350, energiaAR:0, defesa: 28, ataque: 70, estilo:'n_humano', id:34},
+             {nome: 'Yuta', vida: 250, energiaA: -600, energiaAR:300, defesa: 30, ataque: 80, estilo:'humano', id:35},
+	     {nome: 'Mahoraga', vida: 250, energiaA: -300, energiaAR:0, defesa: 35, ataque: 75, estilo:'n_humano', id:36},
+	     {nome: 'Takaba', vida: 200, energiaA: -250, energiaAR:100, defesa: 30, ataque: 60, estilo:'humano', id:37}];
 
 cursed_tools = [{energiaA: -40, ataque: 5, id:1,life:45}, {energiaA: -60, ataque: 10, id:2,life:70}, {energiaA: -60, ataque: 10, id:3,life:70},
                {energiaA: -100, ataque: 0, id:4,life:100}, {energiaA: -40, ataque: 15, id:5,life:55}, {energiaA: -30, ataque: 5, id:6,life:35},
@@ -489,9 +491,9 @@ var rangeDeck = 0
 document.body.onload = () => {
   
       if(dificulty==1){
-        rangeDeck = 29
+        rangeDeck = 30
       }else{
-        rangeDeck = 35
+        rangeDeck = 36
       }  
        
       //sem as cartas OP:
