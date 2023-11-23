@@ -493,7 +493,7 @@ document.body.onload = () => {
       if(dificulty==1){
         rangeDeck = 30
       }else{
-        rangeDeck = 36
+        rangeDeck = 37
       }  
        
       //sem as cartas OP:
