@@ -158,7 +158,7 @@ function spec(player_id){
         effect = "100"
       }
      if(document.getElementById("name_player1").innerHTML.includes("Mahito")){
-        effect = "40"
+        effect = "45"
       }
       document.getElementById("arrow").style.cssText = "animation:arrow_attack1"+ResizeAttack+";display:block; filter:hue-rotate("+effect+"deg) contrast(200%);";
 
