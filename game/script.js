@@ -154,6 +154,12 @@ function spec(player_id){
       if(document.getElementById("name_player1").innerHTML.includes("Sukuna")){
         effect = "-150"
       }
+      if(document.getElementById("name_player1").innerHTML.includes("Yuta")){
+        effect = "100"
+      }
+     if(document.getElementById("name_player1").innerHTML.includes("Mahito")){
+        effect = "40"
+      }
       document.getElementById("arrow").style.cssText = "animation:arrow_attack1"+ResizeAttack+";display:block; filter:hue-rotate("+effect+"deg) contrast(200%);";
 
       document.getElementsByClassName("img_arrow")[0].style.cssText = "transform:rotate(120deg) scale(0.7);"
