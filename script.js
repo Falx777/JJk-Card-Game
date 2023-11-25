@@ -45,10 +45,10 @@ function changeref(){
     document.getElementById("texto_explicacao").innerHTML = text[k]
   }
   k+=1
-  window.scrollTo({
-    top: window.scrollY + siz,
-    behavior: 'smooth'
-  });
+  //window.scrollTo({
+  //  top: window.scrollY + siz,
+  //  behavior: 'smooth'
+  //});
 }
 
 
