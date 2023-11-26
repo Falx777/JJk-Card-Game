@@ -108,6 +108,8 @@ function curse(player_id){
    if(energiaAmal < 0 || parseInt(crtTool["energiaA"]) < 0){
         document.getElementById("arrow").style.cssText = "animation:arrow_attack1"+ResizeAttack+";display:block";
         document.getElementsByClassName("img_arrow")[0].style.cssText = "transform:rotate(120deg) scale(0.7);"
+	    document.getElementById("sound_curse").volume = 0.4
+        document.getElementById("sound_curse").play()
         setTimeout(() => {
         document.getElementById("arrow").style.cssText = "display:none";
           flashAnimation(0)
@@ -126,6 +128,8 @@ function curse(player_id){
     if(energiaAmal < 0 || parseInt(crtTool["energiaA"]) < 0){
       document.getElementById("arrow").style.cssText = "animation:arrow_attack2"+ResizeAttack+";display:block;";
       document.getElementsByClassName("img_arrow")[0].style.cssText = "transform:rotate(290deg) scale(0.7);"
+	     document.getElementById("sound_curse").volume = 0.4
+        document.getElementById("sound_curse").play()
    setTimeout(() => {
        document.getElementById("arrow").style.cssText = "display:none";
        flashAnimation(1)
@@ -182,6 +186,8 @@ function spec(player_id){
   if(player_id ==2 ){
     vidaPlayer = document.getElementsByClassName("life")[0].innerHTML
     if(vidaRound[1]/2 > vidaPlayer){
+	    document.getElementById("sound_spc2").volume = 0.4
+      document.getElementById("sound_spc2").play()
       var effect = "180"
       if (document.getElementById("name_player2").innerHTML.includes("Gojo (Adult)")){
       //if (document.getElementById("name_player2").innerHTML == ""){
@@ -1047,7 +1053,7 @@ document.getElementById("soundtrack").src="Audio/song"+id_song+".mp3"
 document.getElementById("soundtrack").preload = "auto";
 function play_soundtrack(){
   document.getElementById("soundtrack").play()
-  document.getElementById("soundtrack").volume = 0.5
+  document.getElementById("soundtrack").volume = 0.35
   //document.getElementById("soundtrack").muted = false;
 
 }
