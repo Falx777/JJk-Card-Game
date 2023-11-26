@@ -967,3 +967,32 @@ td pre{
 
 }
 
+
+
+#volume_btn{
+  position: fixed;
+  top:2%;
+  left:1%;
+  background-color: white;
+  border-radius:10px;
+  padding:7px;
+  border-style:outset;
+  cursor:pointer;
+  transition: 0.5s;
+}
+
+
+#volume_btn:hover{
+  background-color: gray;
+  color:white;
+}
+
+
+@media screen and (max-width: 400px){
+	#volume_btn{
+    top:-10%;
+    left:51%;
+  }
+}
+
+
