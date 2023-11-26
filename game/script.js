@@ -256,7 +256,7 @@ function attack(player_id){
       document.getElementsByClassName("player1")[0].style.cssText = "z-index:auto;";
     flashAnimation(1)
     calc_damage(1,2)
-    if(current_tool1['id'] == 14){
+    if(current_tool2['id'] == 14){
       document.getElementById("sound_punch").volume = 0.4
         document.getElementById("sound_punch").play()
     }else{
