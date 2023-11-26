@@ -1018,3 +1018,35 @@ function bot(){
 function reset(){
   window.location.href = "../index.html"
 }
+
+
+
+var id_song = Math.floor(Math.random() * 4) + 1  
+document.getElementById("soundtrack").src="Audio/song"+id_song+".mp3"
+document.getElementById("soundtrack").preload = "auto";
+function play_soundtrack(){
+  document.getElementById("soundtrack").play()
+  document.getElementById("soundtrack").volume = 0.6
+  //document.getElementById("soundtrack").muted = false;
+
+}
+
+var sndtrack = 0
+function toggle_soundtrack(){
+  play_soundtrack()
+  console.log("teste")
+  var sign = ""
+  if(sndtrack == 1){
+    document.getElementById("soundtrack").muted = true;
+    sign = "◼"
+    sndtrack = 0
+  }else{
+    document.getElementById("soundtrack").muted = false;
+    sign = "▶"
+    sndtrack = 1
+  }
+  document.getElementById("volume_btn").innerHTML = sign
+
+}
+
+
