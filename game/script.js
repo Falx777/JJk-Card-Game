@@ -1048,7 +1048,7 @@ function reset(){
 
 
 
-var id_song = Math.floor(Math.random() * 4) + 1  
+var id_song = Math.floor(Math.random() * 6) + 1  
 document.getElementById("soundtrack").src="Audio/song"+id_song+".mp3"
 document.getElementById("soundtrack").preload = "auto";
 function play_soundtrack(){
