@@ -10,8 +10,9 @@
   <link rel="icon" href="Image characters/tool11.png" type="image/icon type">
 
 </head>
-<body>
+<body onkeydown="toggle_soundtrack()">
 <!-- partial:index.partial.html -->
+  <audio  preload="auto" loop muted autoplay id="soundtrack"></audio>
 <figure onloadeddata="load_cards(1)">
   <section class="space_buttons player2">
     <!--carta do oponente-->
@@ -409,6 +410,8 @@
 -->
 <!-- partial -->
   <script  src="./script.js"></script>
-
+ <div id="volume_btn" onclick="toggle_soundtrack()">
+    ◼
+  </div>
 </body>
 </html>
