@@ -20,7 +20,7 @@ characters = [{nome: 'Young Gojo', vida: 150, energiaA: -300, energiaAR:0, defes
              {nome: 'Miguel', vida: 150, energiaA: -110, energiaAR:0, defesa: 10, ataque: 20, estilo:'humano', id:19},
              {nome: 'Choso', vida: 160, energiaA: -150, energiaAR:0, defesa: 15, ataque: 15, estilo:'humano', id:20},
              {nome: 'Panda', vida: 160, energiaA: -100, energiaAR:0, defesa: 20, ataque: 18, estilo:'humano', id:21},
-             {nome: 'Mahito', vida: 170, energiaA: -175, energiaAR:0, defesa: 25, ataque: 25, estilo:'n_humano', id:22},
+             {nome: 'Mahito', vida: 170, energiaA: -250, energiaAR:0, defesa: 25, ataque: 25, estilo:'n_humano', id:22},
              {nome: 'Jogo', vida: 150, energiaA: -160, energiaAR:0, defesa: 20, ataque: 28, estilo:'n_humano', id:23},
              {nome: 'Hanami', vida: 170, energiaA: -140, energiaAR:0, defesa: 25, ataque: 15, estilo:'n_humano', id:24},
              {nome: 'Hakari', vida: 180, energiaA: -280, energiaAR:140, defesa: 25, ataque: 28, estilo:'humano', id:25},
