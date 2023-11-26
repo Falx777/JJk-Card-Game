@@ -147,6 +147,8 @@ function spec(player_id){
   if(player_id ==1 ){
     vidaPlayer = document.getElementsByClassName("life")[1].innerHTML   
     if(vidaRound[0]/2 > vidaPlayer){
+    	document.getElementById("sound_spc1").volume = 0.4
+    	document.getElementById("sound_spc1").play()
       var effect = "180"
       if (document.getElementById("name_player1").innerHTML.includes("Gojo (Adult)")){
         effect = "55"
@@ -225,6 +227,13 @@ function attack(player_id){
     flashAnimation(0)
     calc_damage(1,1)
     bot()
+    if(current_tool1['id'] == 14){
+      document.getElementById("sound_punch").volume = 0.4
+        document.getElementById("sound_punch").play()
+    }else{
+      document.getElementById("sound_stab").volume = 0.4
+        document.getElementById("sound_stab").play()
+    }
 }, timeResize); 
   
   }
@@ -241,6 +250,13 @@ function attack(player_id){
       document.getElementsByClassName("player1")[0].style.cssText = "z-index:auto;";
     flashAnimation(1)
     calc_damage(1,2)
+    if(current_tool1['id'] == 14){
+      document.getElementById("sound_punch").volume = 0.4
+        document.getElementById("sound_punch").play()
+    }else{
+      document.getElementById("sound_stab").volume = 0.4
+        document.getElementById("sound_stab").play()
+    }
 }, timeResize); 
    }
   
@@ -253,7 +269,8 @@ var current_tool1 = cursed_tools[13]
 var toolsp2 = []
 var current_tool2 = cursed_tools[13]
 function switch_tool(tool_id,player_id){
-  
+  document.getElementById("sound_switch").volume = 0.4
+  document.getElementById("sound_switch").play()
   if(player_id ==1){
     
     if (tool_id ==1){
@@ -404,6 +421,8 @@ var countLoss = [0,0]
 function select_card(numberDeck,player_id){
   var i = 0
   var conc = ""
+  document.getElementById("sound_flip").volume = 0.4
+  document.getElementById("sound_flip").play()
   if(player_id==1){
     //countLoss[0] += 1;
     i=1
@@ -435,6 +454,8 @@ function select_card(numberDeck,player_id){
 }
 
 function dodge(player_id){
+    document.getElementById("sound_dodge").volume = 0.3
+    document.getElementById("sound_dodge").play()
   if(player_id==1){
     var colorBorder ="lightgray"
     if(vidaRound[0]/2 > parseInt(document.getElementsByClassName("life")[1].innerHTML) && (parseInt(document.getElementsByClassName("energiaA")[1].innerHTML) < 0 || parseInt(current_tool["energiaA"]) < 0)){
@@ -1021,12 +1042,12 @@ function reset(){
 
 
 
-var id_song = Math.floor(Math.random() * 6) + 1  
+var id_song = Math.floor(Math.random() * 4) + 1  
 document.getElementById("soundtrack").src="Audio/song"+id_song+".mp3"
 document.getElementById("soundtrack").preload = "auto";
 function play_soundtrack(){
   document.getElementById("soundtrack").play()
-  document.getElementById("soundtrack").volume = 0.6
+  document.getElementById("soundtrack").volume = 0.5
   //document.getElementById("soundtrack").muted = false;
 
 }
@@ -1034,13 +1055,19 @@ function play_soundtrack(){
 var sndtrack = 0
 function toggle_soundtrack(){
   play_soundtrack()
-  console.log("teste")
+ 
   var sign = ""
   if(sndtrack == 1){
+    for(var v=0; v< document.getElementsByClassName("sounds").length; v++){
+      document.getElementsByClassName("sounds")[v].muted = true
+    }
     document.getElementById("soundtrack").muted = true;
     sign = "◼"
     sndtrack = 0
   }else{
+    for(var v=0; v< document.getElementsByClassName("sounds").length; v++){
+      document.getElementsByClassName("sounds")[v].muted = false
+    }
     document.getElementById("soundtrack").muted = false;
     sign = "▶"
     sndtrack = 1
@@ -1048,5 +1075,4 @@ function toggle_soundtrack(){
   document.getElementById("volume_btn").innerHTML = sign
 
 }
-
 
