@@ -155,7 +155,7 @@ function spec(player_id){
 
   if(player_id ==1 ){
     vidaPlayer = document.getElementsByClassName("life")[1].innerHTML   
-    if(vidaRound[0]/2 > vidaPlayer){
+    if(vidaRound[0]/2 > vidaPlayer && vidaPlayer > 0){
     	document.getElementById("sound_spc1").volume = 0.4
     	document.getElementById("sound_spc1").play()
       var effect = "180"
@@ -190,7 +190,7 @@ function spec(player_id){
     
   if(player_id ==2 ){
     vidaPlayer = document.getElementsByClassName("life")[0].innerHTML
-    if(vidaRound[1]/2 > vidaPlayer){
+    if(vidaRound[1]/2 > vidaPlayer && vidaPlayer > 0){
 	    document.getElementById("sound_spc2").volume = 0.4
       document.getElementById("sound_spc2").play()
       var effect = "180"
