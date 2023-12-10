@@ -56,6 +56,11 @@ var param = window.location.href
 var mode = 1;
 var dificulty = 1;
 
+if(window.innerHeight < 650 ){
+  document.body.style.transform = "scale(0.7)"
+  document.body.style.marginLeft = "-10%"
+}
+
 if(param.includes("mode=1")){
 	mode = 1;
 }else if(param.includes("mode=2")){
@@ -668,6 +673,11 @@ function end_game(status){
   }
     document.body.innerHTML += "<span class='end_game'><img src='"+win+"' alt='' class="+clsSpam+" onclick=' reset()'> </span>";
     document.getElementsByClassName("end_game")[0].style.backgroundImage = walp[status]
+
+    if(mode == 1){
+      document.getElementsByClassName("end_game")[0].style.transform = "rotate(180deg)"
+      document.getElementsByClassName("end_game")[0].style.marginLeft = "-35%"
+    }
 }
 
 function updateAttribute(player_id,index_=0){
@@ -834,7 +844,7 @@ function calc_damage(type_damage, player_id){
           document.getElementsByClassName("life")[j].innerHTML = vida_oponente - dano
           document.getElementById("vida"+c).value = vida_oponente - dano
           document.getElementsByClassName("defesa")[j].innerHTML = defesa - 1
-          damage_animation(dano)
+          
           if(parseInt(energiaAmal) + parseInt(dano) < 0){
             document.getElementsByClassName("energiaA")[i].innerHTML = parseInt(energiaAmal) + parseInt(dano)            
           }else{
@@ -845,7 +855,7 @@ function calc_damage(type_damage, player_id){
                 document.getElementsByClassName("life")[i].innerHTML =   vidaPlayer - dano/2              
               }
             } 
-
+            damage_animation(dano)
         }else{
           if(parseInt(crtTool["energiaA"]) < 0){
             document.getElementsByClassName("life")[j].innerHTML = vida_oponente - dano
@@ -882,9 +892,11 @@ function calc_damage(type_damage, player_id){
             document.getElementsByClassName("life")[j].innerHTML = vida_oponente - (dano - parseInt(crtTool["energiaA"]))
             document.getElementById("vida"+c).value = vida_oponente - (dano - parseInt(crtTool["energiaA"]))
             document.getElementsByClassName("defesa")[j].innerHTML = 0
+            var dmg =   parseInt(dano) - parseInt(crtTool["energiaA"])
+            damage_animation((dmg))
               crtTool["energiaA"] = 0
-              document.getElementById("plus_energiaA"+player_id).innerHTML = " "   
-            damage_animation((dano - parseInt(crtTool["energiaA"])))
+              document.getElementById("plus_energiaA"+player_id).innerHTML = " " 
+              
           }
         } 
       }else if(type_damage ==4){
@@ -965,6 +977,7 @@ function calc_damage(type_damage, player_id){
           //  end_game(2)
           //}  
     }
+    updateAttribute(player_id)
    
   
 }
@@ -1001,19 +1014,19 @@ function bot(){
         
         if(vida_oponente > 0){
            if(vidaRound[0]/2 > vidaPlayer && (energiaAmal < 0 || parseInt(current_tool2["energiaA"]) < 0)){
-             if( action_bot>3 && action_bot <=6){
+             if( action_bot>2 && action_bot <=7){
               spec(2)              
-            }else if(action_bot <=3){
+            }else if(action_bot <=2){
               attack(2)
-            }else if(action_bot > 6 && action_bot <= 8){
+            }else if(action_bot > 7 && action_bot <= 9){
               curse(2)
             }else{
               dodge(2)
             }
           }else if(energiaAmal < 0 || parseInt(current_tool2["energiaA"]) < 0){
-            if( action_bot>3 && action_bot <=7){
+            if( action_bot>2 && action_bot <=7){
               curse(2)              
-            }else if(action_bot <=3){
+            }else if(action_bot <=2){
               attack(2)
             }else if(action_bot > 7){
               dodge(2)
