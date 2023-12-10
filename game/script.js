@@ -110,7 +110,8 @@ function curse(player_id){
    
   if(player_id ==1){
    var energiaAmal = document.getElementsByClassName("energiaA")[1].innerHTML
-   if(energiaAmal < 0 || parseInt(crtTool["energiaA"]) < 0){
+   var vidaPlayer = document.getElementsByClassName("life")[1].innerHTML   
+   if((energiaAmal < 0 || parseInt(crtTool["energiaA"]) < 0 ) && vidaPlayer > 0){
         document.getElementById("arrow").style.cssText = "animation:arrow_attack1"+ResizeAttack+";display:block";
         document.getElementsByClassName("img_arrow")[0].style.cssText = "transform:rotate(120deg) scale(0.7);"
 	    document.getElementById("sound_curse").volume = 0.4
@@ -130,7 +131,8 @@ function curse(player_id){
   
   if(player_id == 2){
     var energiaAmal = document.getElementsByClassName("energiaA")[0].innerHTML
-    if(energiaAmal < 0 || parseInt(crtTool["energiaA"]) < 0){
+    var vidaPlayer = document.getElementsByClassName("life")[0].innerHTML   
+    if((energiaAmal < 0 || parseInt(crtTool["energiaA"]) < 0) & vidaPlayer > 0){
       document.getElementById("arrow").style.cssText = "animation:arrow_attack2"+ResizeAttack+";display:block;";
       document.getElementsByClassName("img_arrow")[0].style.cssText = "transform:rotate(290deg) scale(0.7);"
 	     document.getElementById("sound_curse").volume = 0.4
@@ -228,10 +230,12 @@ function attack(player_id){
   }
   
  if(player_id ==1){ 
+  
    document.getElementById("tool_player1").style.cssText = "animation:rotate_tool 0.5s infinite;"
   
   document.getElementsByClassName("dtool_player1")[0].style.cssText = "animation:move_tool"+ResizeAttack+";"
-  
+  var vidaPlayer = document.getElementsByClassName("life")[1].innerHTML   
+  if(vidaPlayer > 0){
   setTimeout(() => {
      document.getElementById("tool_player1").style.cssText = "animation:none";
     document.getElementsByClassName("dtool_player1")[0].style.cssText = "animation:none;"
@@ -246,7 +250,7 @@ function attack(player_id){
         document.getElementById("sound_stab").play()
     }
 }, timeResize); 
-  
+}
   }
  
    if(player_id==2){ 
@@ -255,6 +259,8 @@ function attack(player_id){
   
   document.getElementsByClassName("dtool_player2")[0].style.cssText = "animation:move_tool2"+ResizeAttack+";"
   document.getElementsByClassName("player1")[0].style.cssText = "z-index:98;";  
+  var vidaPlayer = document.getElementsByClassName("life")[0].innerHTML   
+  if(vidaPlayer > 0){
   setTimeout(() => {
      document.getElementById("tool_player2").style.cssText = "animation:none";
     document.getElementsByClassName("dtool_player2")[0].style.cssText = "animation:none;";
@@ -269,6 +275,7 @@ function attack(player_id){
         document.getElementById("sound_stab").play()
     }
 }, timeResize); 
+  }
    }
   
   updateAttribute(player_id)
@@ -513,7 +520,11 @@ function dodge(player_id){
     document.getElementsByClassName("player_card_on")[0].style.cssText = "border-color: rgb(50,50,252);opacity:0.7";    
     */
   }
-  calc_damage(4,player_id)
+  var vidaPlayer1 = document.getElementsByClassName("life")[1].innerHTML   
+  var vidaPlayer2 = document.getElementsByClassName("life")[0].innerHTML   
+  if( vidaPlayer1 > 0 && vidaPlayer2>0){
+    calc_damage(4,player_id)
+  }
   updateAttribute(player_id)
 }
 
