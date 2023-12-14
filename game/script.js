@@ -230,12 +230,13 @@ function attack(player_id){
   }
   
  if(player_id ==1){ 
+  var vidaPlayer = document.getElementsByClassName("life")[1].innerHTML 
+ 
+    
   
-   document.getElementById("tool_player1").style.cssText = "animation:rotate_tool 0.5s infinite;"
-  
-  document.getElementsByClassName("dtool_player1")[0].style.cssText = "animation:move_tool"+ResizeAttack+";"
-  var vidaPlayer = document.getElementsByClassName("life")[1].innerHTML   
   if(vidaPlayer > 0){
+    document.getElementById("tool_player1").style.cssText = "animation:rotate_tool 0.5s infinite;"
+    document.getElementsByClassName("dtool_player1")[0].style.cssText = "animation:move_tool"+ResizeAttack+";"
   setTimeout(() => {
      document.getElementById("tool_player1").style.cssText = "animation:none";
     document.getElementsByClassName("dtool_player1")[0].style.cssText = "animation:none;"
@@ -254,13 +255,14 @@ function attack(player_id){
   }
  
    if(player_id==2){ 
-     
-     document.getElementById("tool_player2").style.cssText = "animation:rotate_tool 0.5s infinite;"
-  
-  document.getElementsByClassName("dtool_player2")[0].style.cssText = "animation:move_tool2"+ResizeAttack+";"
-  document.getElementsByClassName("player1")[0].style.cssText = "z-index:98;";  
-  var vidaPlayer = document.getElementsByClassName("life")[0].innerHTML   
+    var vidaPlayer = document.getElementsByClassName("life")[0].innerHTML  
+    
+    
   if(vidaPlayer > 0){
+    document.getElementById("tool_player2").style.cssText = "animation:rotate_tool 0.5s infinite;"
+  
+    document.getElementsByClassName("dtool_player2")[0].style.cssText = "animation:move_tool2"+ResizeAttack+";"
+    document.getElementsByClassName("player1")[0].style.cssText = "z-index:98;";  
   setTimeout(() => {
      document.getElementById("tool_player2").style.cssText = "animation:none";
     document.getElementsByClassName("dtool_player2")[0].style.cssText = "animation:none;";
@@ -889,7 +891,7 @@ function calc_damage(type_damage, player_id){
           if(vidaRound[j]/2 > vidaPlayer){
             document.getElementsByClassName("life")[j].innerHTML = vida_oponente - (dano - energiaAmal)
             document.getElementById("vida"+c).value = vida_oponente - (dano - energiaAmal)
-		  if(defesa < 0){
+		  if(defesa <= 0){
 			  document.getElementsByClassName("defesa")[j].innerHTML = defesa - 1
 		  }else{
             		document.getElementsByClassName("defesa")[j].innerHTML = 0		  
@@ -1035,11 +1037,11 @@ function bot(){
               dodge(2)
             }
           }else if(energiaAmal < 0 || parseInt(current_tool2["energiaA"]) < 0){
-            if( action_bot>2 && action_bot <=7){
+            if( action_bot>2 && action_bot <=9){
               curse(2)              
             }else if(action_bot <=2){
               attack(2)
-            }else if(action_bot > 7){
+            }else if(action_bot > 9){
               dodge(2)
             }
 
