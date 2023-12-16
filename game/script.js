@@ -618,6 +618,9 @@ function updateOnCard(index_,player_id){
     vidaRound[0] = parseInt(characters[id_selected[index_]]["vida"])
     vidaRegen[0] = parseInt(characters[id_selected[index_]]["vida"]);
     curEstilo[0] = characters[id_selected[index_]]["estilo"]
+    //new_line
+    vidaRound[1] = parseInt(document.getElementsByClassName("life")[0].innerHTML) 
+    console.log("autalização de vida")
     current_player_id = 1 
     
     var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
@@ -640,6 +643,8 @@ function updateOnCard(index_,player_id){
      vidaRound[1] = parseInt(characters[id_selected[index_]]["vida"]);
      vidaRegen[1] = parseInt(characters[id_selected[index_]]["vida"]);
      curEstilo[1] = characters[id_selected[index_]]["estilo"]
+     //new_line
+     vidaRound[0] = parseInt(document.getElementsByClassName("life")[1].innerHTML); 
      current_player_id = 0
 
       var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
@@ -952,6 +957,7 @@ function calc_damage(type_damage, player_id){
        
         document.getElementsByClassName("life")[j].innerHTML = 0;
         vidaRound[j]=document.getElementsByClassName("life")[i].innerHTML
+        
           //countLoss[j] += 1
        if(player_id ==1 ){
          
@@ -1026,15 +1032,23 @@ function bot(){
       if(vidaPlayer>0){
         
         if(vida_oponente > 0){
-           if(vidaRound[0]/2 > vidaPlayer && (energiaAmal < 0 || parseInt(current_tool2["energiaA"]) < 0)){
-             if( action_bot>2 && action_bot <=7){
-              spec(2)              
-            }else if(action_bot <=2){
-              attack(2)
-            }else if(action_bot > 7 && action_bot <= 9){
-              curse(2)
-            }else{
-              dodge(2)
+          console.log(vidaRound[1]/2)
+          console.log(vidaPlayer)
+           if(vidaRound[1]/2 > vidaPlayer && (energiaAmal < 0 || parseInt(current_tool2["energiaA"]) < 0)){
+            if(dificulty != 2 ){
+
+              if( action_bot>2 && action_bot <=7){
+                spec(2)              
+              }else if(action_bot <=2){
+                attack(2)
+              }else if(action_bot > 7 && action_bot <= 9){
+                curse(2)
+              }else{
+                dodge(2)
+              }
+            }else if(dificulty == 2 ){
+              console.log("testeENEARM")
+              spec(2)
             }
           }else if(energiaAmal < 0 || parseInt(current_tool2["energiaA"]) < 0){
             if( action_bot>2 && action_bot <=9){
