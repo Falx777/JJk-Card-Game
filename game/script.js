@@ -407,8 +407,9 @@ function switch_tool(tool_id,player_id){
       toolsp2[tool_id-1] = temp_tool
     
           var colorBorder ="lightgray"
-      if(vidaRound[0]/2 > parseInt(document.getElementsByClassName("life")[1].innerHTML) && (parseInt(document.getElementsByClassName("energiaA")[1].innerHTML) < 0 || parseInt(current_tool2["energiaA"]) < 0)){
+      if(vidaRound[1]/2 > parseInt(document.getElementsByClassName("life")[0].innerHTML) && (parseInt(document.getElementsByClassName("energiaA")[0].innerHTML) < 0 || parseInt(current_tool2["energiaA"]) < 0)){
             colorBorder = "lightgreen";
+            
       }
     
     var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
@@ -478,7 +479,7 @@ function dodge(player_id){
     document.getElementById("sound_dodge").play()
   if(player_id==1){
     var colorBorder ="lightgray"
-    if(vidaRound[0]/2 > parseInt(document.getElementsByClassName("life")[1].innerHTML) && (parseInt(document.getElementsByClassName("energiaA")[1].innerHTML) < 0 || parseInt(current_tool["energiaA"]) < 0)){
+    if(vidaRound[0]/2 > parseInt(document.getElementsByClassName("life")[1].innerHTML) && (parseInt(document.getElementsByClassName("energiaA")[1].innerHTML) < 0 || parseInt(current_tool1["energiaA"]) < 0)){
             colorBorder = "lightgreen"
         }
      var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
@@ -504,6 +505,7 @@ function dodge(player_id){
       var colorBorder ="lightgray"
     if(vidaRound[1]/2 > parseInt(document.getElementsByClassName("life")[0].innerHTML) && (parseInt(document.getElementsByClassName("energiaA")[0].innerHTML) < 0 || parseInt(current_tool2["energiaA"]) < 0)){
             colorBorder = "lightgreen";
+            
         }
        var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
      var idBackground = 0
@@ -670,7 +672,6 @@ function updateOnCard(index_,player_id){
 }
 
 function end_game(status){  
-  
   var win = ""
   var walp = ["","",""]
   if(status==1){
@@ -692,28 +693,16 @@ function end_game(status){
     document.body.innerHTML += "<span class='end_game'><img src='"+win+"' alt='' class="+clsSpam+" onclick=' reset()'> </span>";
     document.getElementsByClassName("end_game")[0].style.backgroundImage = walp[status]
 
-    if(mode == 1){
+    if(mode == 1 && status == 2 && window.innerWidth <= 400){
       document.getElementsByClassName("end_game")[0].style.transform = "rotate(180deg)"
       document.getElementsByClassName("end_game")[0].style.marginLeft = "-35%"
     }
-}
 
-function updateAttribute(player_id,index_=0){
+    document.getElementById("end_game_sound").volume = 0.25
+        document.getElementById("end_game_sound").play()
+  }
   
-  /*
-  if(characters[id_selected[curIndex[0]]]["estilo"] == "n_humano"){
-
-          document.getElementsByClassName("player_card_on")[1].style.cssText = "background-image: linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22));";
-        }else{
-          document.getElementsByClassName("player_card_on")[1].style.cssText = "background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));";
-        }
-    if(characters[id_selected[curIndex[1]]]["estilo"] == "n_humano"){
-      
-      document.getElementsByClassName("player_card_on")[0].style.cssText = "background-image: linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22));";
-    }else{
-      document.getElementsByClassName("player_card_on")[0].style.cssText = "background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));";
-    }
-  */
+function updateAttribute(player_id,index_=0){
 
   setTimeout(() => {
   
@@ -747,7 +736,8 @@ function updateAttribute(player_id,index_=0){
        //     colorBorder = "green";
       //  }
     
-      if(vidaRound[1]/2 > parseInt(document.getElementsByClassName("life")[0].innerHTML) && (parseInt(document.getElementsByClassName("energiaA")[0].innerHTML) < 0 || parseInt(current_tool["energiaA"]) < 0)){
+      //if(vidaRound[1]/2 > parseInt(document.getElementsByClassName("life")[0].innerHTML) && (parseInt(document.getElementsByClassName("energiaA")[0].innerHTML) < 0 || parseInt(current_tool["energiaA"]) < 0)){
+        if(vidaRound[1]/2 > parseInt(document.getElementsByClassName("life")[0].innerHTML) && (parseInt(document.getElementsByClassName("energiaA")[0].innerHTML) < 0 || parseInt(current_tool2["energiaA"]) < 0)){      
             colorBorder = "lightgreen";
         }
     
@@ -785,8 +775,10 @@ function updateAttribute(player_id,index_=0){
     document.getElementsByClassName("tool_btn")[4].setAttribute("onclick","switch_tool(2,1)")
     document.getElementsByClassName("tool_btn")[5].setAttribute("onclick","switch_tool(3,1)")
     
-    if(vidaRound[0]/2 > parseInt(document.getElementsByClassName("life")[1].innerHTML) && (parseInt(document.getElementsByClassName("energiaA")[1].innerHTML) < 0 || parseInt(current_tool1["energiaA"]) < 0)){
-            colorBorder = "lightgreen";
+
+        if(vidaRound[0]/2 > parseInt(document.getElementsByClassName("life")[1].innerHTML) && (parseInt(document.getElementsByClassName("energiaA")[1].innerHTML) < 0 || parseInt(current_tool1["energiaA"]) < 0)){
+          colorBorder = "lightgreen";
+          
         }
      
      var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
@@ -1088,12 +1080,12 @@ function reset(){
 
 
 
-var id_song = Math.floor(Math.random() * 6) + 1  
+var id_song = Math.floor(Math.random() * 7) + 1  
 document.getElementById("soundtrack").src="Audio/song"+id_song+".mp3"
 document.getElementById("soundtrack").preload = "auto";
-function play_soundtrack(){
+function play_soundtrack( volum = 0.35){
   document.getElementById("soundtrack").play()
-  document.getElementById("soundtrack").volume = 0.35
+  document.getElementById("soundtrack").volume = volum
   //document.getElementById("soundtrack").muted = false;
 
 }
