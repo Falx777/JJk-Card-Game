@@ -864,6 +864,11 @@ function calc_damage(type_damage, player_id){
               if(vidaPlayer -parseInt(dano/2) >0){
                 document.getElementsByClassName("life")[i].innerHTML =   vidaPlayer - dano/2              
               }
+                if( c == "1"){
+                  document.getElementById("vida2").value = document.getElementsByClassName("life")[i].innerHTML         
+                }else{
+                  document.getElementById("vida1").value = document.getElementsByClassName("life")[i].innerHTML         
+                }
             } 
             damage_animation(dano)
         }else{
