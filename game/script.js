@@ -35,7 +35,8 @@ characters = [{nome: 'Young Gojo', vida: 150, energiaA: -300, energiaAR:0, defes
              {nome: 'Rika', vida: 250, energiaA: -350, energiaAR:0, defesa: 28, ataque: 70, estilo:'n_humano', id:34},
              {nome: 'Yuta', vida: 250, energiaA: -600, energiaAR:300, defesa: 30, ataque: 80, estilo:'humano', id:35},
 	     {nome: 'Mahoraga', vida: 250, energiaA: -300, energiaAR:0, defesa: 35, ataque: 75, estilo:'n_humano', id:36},
-	     {nome: 'Takaba', vida: 200, energiaA: -250, energiaAR:100, defesa: 30, ataque: 60, estilo:'humano', id:37}];
+	     {nome: 'Takaba', vida: 200, energiaA: -250, energiaAR:100, defesa: 30, ataque: 60, estilo:'humano', id:37},
+       {nome: 'Higuruma', vida: 200, energiaA: -100, energiaAR:00, defesa: 30, ataque: 50, estilo:'humano', id:38}];
 
 cursed_tools = [{energiaA: -40, ataque: 5, id:1,life:45}, {energiaA: -60, ataque: 10, id:2,life:70}, {energiaA: -60, ataque: 10, id:3,life:70},
                {energiaA: -100, ataque: 0, id:4,life:100}, {energiaA: -40, ataque: 15, id:5,life:55}, {energiaA: -30, ataque: 5, id:6,life:35},
@@ -90,6 +91,7 @@ function flashAnimation(player_id){
   document.getElementsByClassName("player_card_on")[player_id].style.animation = "flash_hit 0.5s"
    setTimeout(() => {
      document.getElementsByClassName("player_card_on")[player_id].style.animation= "none";
+     
 }, 490);  
 }
 
@@ -154,6 +156,8 @@ function spec(player_id){
     ResizeAttack = "Width 0.4s"
     timeResize = "350"
   }
+
+  
 
   if(player_id ==1 ){
     vidaPlayer = document.getElementsByClassName("life")[1].innerHTML   
@@ -231,7 +235,6 @@ function attack(player_id){
   
  if(player_id ==1){ 
   var vidaPlayer = document.getElementsByClassName("life")[1].innerHTML 
- 
     
   
   if(vidaPlayer > 0){
@@ -546,7 +549,7 @@ document.body.onload = () => {
       if(dificulty==1){
         rangeDeck = 30
       }else{
-        rangeDeck = 37
+        rangeDeck = 38
       }  
        
       //sem as cartas OP:
@@ -667,7 +670,13 @@ function updateOnCard(index_,player_id){
   document.getElementsByClassName("energiaA")[current_player_id].innerHTML = characters[id_selected[index_]]["energiaA"];
   document.getElementsByClassName("life")[current_player_id].innerHTML = characters[id_selected[index_]]["vida"];
    
-  
+  //juiz
+  if(document.getElementById("name_player1").innerHTML.includes("Higuruma") ){
+    document.getElementsByClassName("energiaA")[1].innerHTML = document.getElementsByClassName("energiaA")[0].innerHTML;
+  }
+  if(document.getElementById("name_player2").innerHTML.includes("Higuruma") ){
+    document.getElementsByClassName("energiaA")[0].innerHTML = document.getElementsByClassName("energiaA")[1].innerHTML;
+  }
 
 }
 
@@ -862,13 +871,15 @@ function calc_damage(type_damage, player_id){
           }
           if(dificulty==3){
               if(vidaPlayer -parseInt(dano/2) >0){
-                document.getElementsByClassName("life")[i].innerHTML =   vidaPlayer - dano/2              
-              }
+                document.getElementsByClassName("life")[i].innerHTML =   vidaPlayer - dano/2  
+                //alppp
                 if( c == "1"){
                   document.getElementById("vida2").value = document.getElementsByClassName("life")[i].innerHTML         
                 }else{
                   document.getElementById("vida1").value = document.getElementsByClassName("life")[i].innerHTML         
                 }
+
+              }
             } 
             damage_animation(dano)
         }else{
