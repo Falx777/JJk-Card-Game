@@ -367,19 +367,21 @@ function switch_tool(tool_id,player_id){
     
       var colorBorder="lightgray";
       
-      if(document.getElementById("name_player1").innerHTML.includes("Mahoraga") || document.getElementById("name_player2").innerHTML.includes("Mahoraga")){
-        colorBorder="yellow";
-      }
 
 
       if(vidaRound[0]/2 > parseInt(document.getElementsByClassName("life")[1].innerHTML) && (parseInt(document.getElementsByClassName("energiaA")[1].innerHTML) < 0 || parseInt(current_tool1["energiaA"]) < 0)){
             colorBorder = "lightgreen";
         }
      
-     var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
+     //var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
+     var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"," background-image:linear-gradient(240deg, rgb(190, 227, 55), 60%, rgb(160, 145, 25), 90%, rgb(227, 227, 70))"]
      var idBackground = 0
     if(characters[id_selected[curIndex[0]]]["estilo"] == "n_humano"){
       idBackground=1;
+    }
+
+    if(document.getElementById("name_player1").innerHTML.includes("Mahoraga") || document.getElementById("name_player1").innerHTML.includes("Higuruma") ){
+      idBackground=2;
     }
     
     
@@ -447,18 +449,20 @@ function switch_tool(tool_id,player_id){
     
           var colorBorder ="lightgray"
 
-          if(document.getElementById("name_player1").innerHTML.includes("Mahoraga") || document.getElementById("name_player2").innerHTML.includes("Mahoraga")){
-            colorBorder="yellow";
-          }
       if(vidaRound[1]/2 > parseInt(document.getElementsByClassName("life")[0].innerHTML) && (parseInt(document.getElementsByClassName("energiaA")[0].innerHTML) < 0 || parseInt(current_tool2["energiaA"]) < 0)){
             colorBorder = "lightgreen";
             
       }
     
-    var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
-     var idBackground = 0
+    //var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
+    var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"," background-image:linear-gradient(240deg, rgb(190, 227, 55), 60%, rgb(160, 145, 25), 90%, rgb(227, 227, 70))"] 
+    var idBackground = 0
     if(characters[id_selected[curIndex[1]]]["estilo"] == "n_humano"){
       idBackground=1;
+    }
+
+    if(document.getElementById("name_player2").innerHTML.includes("Mahoraga") || document.getElementById("name_player2").innerHTML.includes("Higuruma") ){
+      idBackground=2;
     }
    
      document.getElementsByClassName("player_card_on")[0].style.cssText = "border-color:"+colorBorder+";"+backgroundColor[idBackground];
@@ -525,14 +529,22 @@ function dodge(player_id){
     if(vidaRound[0]/2 > parseInt(document.getElementsByClassName("life")[1].innerHTML) && (parseInt(document.getElementsByClassName("energiaA")[1].innerHTML) < 0 || parseInt(current_tool1["energiaA"]) < 0)){
             colorBorder = "lightgreen"
         }
-     var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
-     var idBackground = 0
+    //var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
+    var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))","  background-image:linear-gradient(240deg, rgb(190, 227, 55), 60%, rgb(160, 145, 25), 90%, rgb(227, 227, 70))"]
+    var idBackground = 0
      var idBackground2 = 0
     if(characters[id_selected[curIndex[0]]]["estilo"] == "n_humano"){
       idBackground2=1
     }
     if(characters[id_selected[curIndex[1]]]["estilo"] == "n_humano"){
       idBackground=1;
+    }
+    if(document.getElementById("name_player2").innerHTML.includes("Mahoraga")  || document.getElementById("name_player2").innerHTML.includes("Higuruma")){
+      idBackground=2;
+    }
+
+    if(document.getElementById("name_player1").innerHTML.includes("Mahoraga")  || document.getElementById("name_player1").innerHTML.includes("Higuruma")){
+      idBackground2=2;
     }
     
      document.getElementsByClassName("player_card_on")[0].style.cssText = "border-color:"+colorBorder+";opacity:1;"+backgroundColor[idBackground];
@@ -550,14 +562,23 @@ function dodge(player_id){
             colorBorder = "lightgreen";
             
         }
-       var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
-     var idBackground = 0
+    //var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
+    var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"," background-image:linear-gradient(240deg, rgb(190, 227, 55), 60%, rgb(160, 145, 25), 90%, rgb(227, 227, 70))"]
+    var idBackground = 0
      var idBackground2 = 0
     if(characters[id_selected[curIndex[0]]]["estilo"] == "n_humano"){
       idBackground2=1
     }
     if(characters[id_selected[curIndex[1]]]["estilo"] == "n_humano"){
       idBackground=1;
+    }
+
+    if(document.getElementById("name_player2").innerHTML.includes("Mahoraga")  || document.getElementById("name_player2").innerHTML.includes("Higuruma")){
+      idBackground=2;
+    }
+
+    if(document.getElementById("name_player1").innerHTML.includes("Mahoraga")  || document.getElementById("name_player1").innerHTML.includes("Higuruma")){
+      idBackground2=2;
     }
     
      document.getElementsByClassName("player_card_on")[1].style.cssText = "border-color:"+colorBorder+";opacity:1;"+backgroundColor[idBackground2];
@@ -668,8 +689,7 @@ function updateOnCard(index_,player_id){
 
     current_player_id = 1 
     
-    var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
-     //var idBackground = 0
+    var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))","linear-gradient(240deg, rgb(190, 227, 55), 60%, rgb(160, 145, 25), 90%, rgb(227, 227, 70))"]
      var idBackground2 = 0
     //if(characters[id_selected[curIndex[1]]]["estilo"] == "n_humano"){
     //  idBackground=1
@@ -677,6 +697,12 @@ function updateOnCard(index_,player_id){
     if(characters[id_selected[curIndex[0]]]["estilo"] == "n_humano"){
       idBackground2=1
     }
+
+    if(document.getElementById("name_player1").innerHTML.includes("Mahoraga")  || document.getElementById("name_player1").innerHTML.includes("Higuruma")){
+      idBackground2=2;
+    }
+    
+
     document.getElementsByClassName("player_card_on")[current_player_id].style.backgroundImage = backgroundColor[idBackground2];
   }
    if(player_id == 2){
@@ -692,8 +718,9 @@ function updateOnCard(index_,player_id){
      vidaRound[0] = parseInt(document.getElementsByClassName("life")[1].innerHTML); 
      current_player_id = 0
 
-      var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
-     var idBackground = 0
+    //var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
+    var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))","linear-gradient(240deg, rgb(190, 227, 55), 60%, rgb(160, 145, 25), 90%, rgb(227, 227, 70))"]
+    var idBackground = 0
      //var idBackground2 = 0
     if(characters[id_selected[curIndex[1]]]["estilo"] == "n_humano"){
       idBackground=1
@@ -701,6 +728,10 @@ function updateOnCard(index_,player_id){
     //if(characters[id_selected[curIndex[0]]]["estilo"] == "n_humano"){
     //  idBackground2=1
     //}s
+    if(document.getElementById("name_player2").innerHTML.includes("Mahoraga")  || document.getElementById("name_player2").innerHTML.includes("Higuruma")){
+      idBackground=2;
+    }
+
     document.getElementsByClassName("player_card_on")[current_player_id].style.backgroundImage = backgroundColor[idBackground];
    }
   
@@ -765,9 +796,7 @@ function updateAttribute(player_id,index_=0){
   
     
     var colorBorder = "lightgray";
-    if(document.getElementById("name_player1").innerHTML.includes("Mahoraga")){
-      colorBorder="yellow";
-    }
+
   if(player_id == 1){
     //mahoraga
     if(document.getElementById("name_player2").innerHTML.includes("Mahoraga")){
@@ -805,7 +834,7 @@ function updateAttribute(player_id,index_=0){
             colorBorder = "lightgreen";
         }
     
-         var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
+    var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))","background-image:linear-gradient(240deg, rgb(212, 227, 55), 20%, rgb(182, 145, 25), 50%, rgb(227, 227, 70))"]
      var idBackground = 0
      var idBackground2 = 0
     if(characters[id_selected[curIndex[0]]]["estilo"] == "n_humano"){
@@ -813,6 +842,14 @@ function updateAttribute(player_id,index_=0){
     }
     if(characters[id_selected[curIndex[1]]]["estilo"] == "n_humano"){
       idBackground=1;
+    }
+
+    if(document.getElementById("name_player1").innerHTML.includes("Mahoraga")  || document.getElementById("name_player1").innerHTML.includes("Higuruma")){
+      idBackground2=2;
+    }
+
+    if(document.getElementById("name_player2").innerHTML.includes("Mahoraga")  || document.getElementById("name_player2").innerHTML.includes("Higuruma")){
+      idBackground=2;
     }
     
      document.getElementsByClassName("player_card_on")[0].style.cssText = "border-color:"+colorBorder+";opacity:1;"+backgroundColor[idBackground];
@@ -847,7 +884,7 @@ function updateAttribute(player_id,index_=0){
           
         }
      
-     var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
+     var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"," background-image:linear-gradient(240deg, rgb(190, 227, 55), 60%, rgb(160, 145, 25), 90%, rgb(227, 227, 70))"]
      var idBackground = 0
      var idBackground2 = 0
     if(characters[id_selected[curIndex[1]]]["estilo"] == "n_humano"){
@@ -855,6 +892,14 @@ function updateAttribute(player_id,index_=0){
     }
     if(characters[id_selected[curIndex[0]]]["estilo"] == "n_humano"){
       idBackground=1;
+    }
+    
+    if(document.getElementById("name_player1").innerHTML.includes("Mahoraga")  || document.getElementById("name_player1").innerHTML.includes("Higuruma")){
+      idBackground=2;
+    }
+      
+    if(document.getElementById("name_player2").innerHTML.includes("Mahoraga")  || document.getElementById("name_player2").innerHTML.includes("Higuruma")){
+      idBackground2=2;
     }
     
      document.getElementsByClassName("player_card_on")[1].style.cssText = "border-color:"+colorBorder+";opacity:1;"+backgroundColor[idBackground];
@@ -1047,15 +1092,23 @@ function calc_damage(type_damage, player_id){
         document.getElementsByClassName("dodge_btn")[i].removeAttribute("onclick")
         document.getElementsByClassName("special_btn")[i].removeAttribute("onclick")
       
-        var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
-       //var idBackground = 0
+      //var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
+      var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))","linear-gradient(240deg, rgb(190, 227, 55), 60%, rgb(160, 145, 25), 90%, rgb(227, 227, 70))"]
+      //var idBackground = 0
        var idBackground2 = 0
-      //if(characters[id_selected[curIndex[1]]]["estilo"] == "n_humano"){
-      //  idBackground=1
-      //}
       if(characters[id_selected[curIndex[i]]]["estilo"] == "n_humano"){
         idBackground2=1
       }
+
+      var namePlayerCard = "name_player1"
+      if(player_id ==2 ){
+        namePlayerCard =  "name_player2"
+      }
+
+      if(document.getElementById(namePlayerCard).innerHTML.includes("Mahoraga")  || document.getElementById(namePlayerCard).innerHTML.includes("Higuruma")){
+        idBackground=2;
+      }
+
         document.getElementsByClassName("player_card_on")[j].style.cssText = "border-color:red;opacity:1;background-image:"+backgroundColor[idBackground2];
          
 
