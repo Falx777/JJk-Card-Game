@@ -113,8 +113,14 @@ function curse(player_id){
   if(player_id ==1){
    var energiaAmal = document.getElementsByClassName("energiaA")[1].innerHTML
    var vidaPlayer = document.getElementsByClassName("life")[1].innerHTML   
+
+   if(document.getElementById("name_player1").innerHTML.includes("Choso") || document.getElementById("name_player1").innerHTML.includes("Kamo") ){
+    document.getElementsByClassName("img_arrow")[0].src = "Image characters/blood_gif.gif"
+  }
    if((energiaAmal < 0 || parseInt(crtTool["energiaA"]) < 0 ) && vidaPlayer > 0){
-        document.getElementById("arrow").style.cssText = "animation:arrow_attack1"+ResizeAttack+";display:block";
+      // alteração cor  
+      document.getElementById("arrow").style.cssText = "animation:arrow_attack1"+ResizeAttack+";display:block";
+      //document.getElementById("arrow").style.cssText = "animation:arrow_attack1"+ResizeAttack+";display:block; filter:hue-rotate("+-180+"deg) contrast(400%);";
         document.getElementsByClassName("img_arrow")[0].style.cssText = "transform:rotate(120deg) scale(0.7);"
 	    document.getElementById("sound_curse").volume = 0.4
         document.getElementById("sound_curse").play()
@@ -122,6 +128,7 @@ function curse(player_id){
         document.getElementById("arrow").style.cssText = "display:none";
           flashAnimation(0)
           calc_damage(2,1)
+          document.getElementsByClassName("img_arrow")[0].src = "Image characters/fire_gif.gif"
           bot()
       }, timeResize);     
    }else{
@@ -134,6 +141,11 @@ function curse(player_id){
   if(player_id == 2){
     var energiaAmal = document.getElementsByClassName("energiaA")[0].innerHTML
     var vidaPlayer = document.getElementsByClassName("life")[0].innerHTML   
+
+    if(document.getElementById("name_player2").innerHTML.includes("Choso") || document.getElementById("name_player2").innerHTML.includes("Kamo") ){
+      document.getElementsByClassName("img_arrow")[0].src = "Image characters/blood_gif.gif"
+    }
+
     if((energiaAmal < 0 || parseInt(crtTool["energiaA"]) < 0) & vidaPlayer > 0){
       document.getElementById("arrow").style.cssText = "animation:arrow_attack2"+ResizeAttack+";display:block;";
       document.getElementsByClassName("img_arrow")[0].style.cssText = "transform:rotate(290deg) scale(0.7);"
@@ -143,6 +155,7 @@ function curse(player_id){
        document.getElementById("arrow").style.cssText = "display:none";
        flashAnimation(1)
            calc_damage(2,2)
+           document.getElementsByClassName("img_arrow")[0].src = "Image characters/fire_gif.gif"
   }, timeResize);  
     }
   }
@@ -904,7 +917,7 @@ function calc_damage(type_damage, player_id){
           if(vidaRound[j]/2 > vidaPlayer){
             document.getElementsByClassName("life")[j].innerHTML = vida_oponente - (dano - energiaAmal)
             document.getElementById("vida"+c).value = vida_oponente - (dano - energiaAmal)
-		  if(defesa <= 0){
+		  if(document.getElementsByClassName("defesa")[j].innerHTML  <= 0){
 			  document.getElementsByClassName("defesa")[j].innerHTML = defesa - 1
 		  }else{
             		document.getElementsByClassName("defesa")[j].innerHTML = 0		  
