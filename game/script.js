@@ -34,7 +34,7 @@ characters = [{nome: 'Young Gojo', vida: 150, energiaA: -300, energiaAR:0, defes
              {nome: 'Sukuna (20 f)', vida: 250, energiaA: -450, energiaAR:225, defesa: 30, ataque: 80, estilo:'humano', id:33},
              {nome: 'Rika', vida: 250, energiaA: -350, energiaAR:0, defesa: 28, ataque: 70, estilo:'n_humano', id:34},
              {nome: 'Yuta', vida: 250, energiaA: -600, energiaAR:300, defesa: 30, ataque: 80, estilo:'humano', id:35},
-	     {nome: 'Mahoraga', vida: 250, energiaA: -300, energiaAR:0, defesa: 35, ataque: 75, estilo:'n_humano', id:36},
+	     {nome: 'Mahoraga', vida: 250, energiaA: -300, energiaAR:0, defesa: 0, ataque: 75, estilo:'n_humano', id:36},
 	     {nome: 'Takaba', vida: 200, energiaA: -250, energiaAR:100, defesa: 30, ataque: 60, estilo:'humano', id:37},
        {nome: 'Higuruma', vida: 200, energiaA: -100, energiaAR:00, defesa: 30, ataque: 50, estilo:'humano', id:38}];
 
@@ -45,7 +45,7 @@ cursed_tools = [{energiaA: -40, ataque: 5, id:1,life:45}, {energiaA: -60, ataque
 		{energiaA: -60, ataque: 10, id:13,life:70},{energiaA: 0, ataque: 0, id:14,life:-1}];
 
 backgroundImages = ['bkg1.png', 'bkg2.png','bkg3.jpg','bkg4.png','bkg5.png']
-
+//defesa_mahoraga = 35 antes
 //backgroundImages = ['https://i.redd.it/vr72t8onoaq81.png', 'https://preview.redd.it/i278jvdyli471.png?width=1080&crop=smart&auto=webp&s=818e2415a10376054a2ffa20efd14dac2d049649','https://i.pinimg.com/originals/25/1f/49/251f49b9061e3ef0b3a862135258f151.jpg']
 
 ind_background = Math.floor(Math.random() * 5)
@@ -636,9 +636,9 @@ function updateOnCard(index_,player_id){
     vidaRound[0] = parseInt(characters[id_selected[index_]]["vida"])
     vidaRegen[0] = parseInt(characters[id_selected[index_]]["vida"]);
     curEstilo[0] = characters[id_selected[index_]]["estilo"]
-    //new_line
     vidaRound[1] = parseInt(document.getElementsByClassName("life")[0].innerHTML) 
-    console.log("autalização de vida")
+    
+
     current_player_id = 1 
     
     var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
@@ -691,6 +691,7 @@ function updateOnCard(index_,player_id){
     document.getElementsByClassName("energiaA")[0].innerHTML = document.getElementsByClassName("energiaA")[1].innerHTML;
   }
 
+
 }
 
 function end_game(status){  
@@ -731,7 +732,11 @@ function updateAttribute(player_id,index_=0){
     
     var colorBorder = "lightgray";
   if(player_id == 1){
-    
+    //mahoraga
+    if(document.getElementById("name_player2").innerHTML.includes("Mahoraga")){
+      document.getElementsByClassName("defesa")[0].innerHTML = document.getElementsByClassName("ataque")[1].innerHTML ;
+    }
+
     document.getElementsByClassName("attack_btn")[1].removeAttribute("onclick")
     document.getElementsByClassName("curse_btn")[1].removeAttribute("onclick")
     document.getElementsByClassName("dodge_btn")[1].removeAttribute("onclick")
@@ -779,8 +784,10 @@ function updateAttribute(player_id,index_=0){
   }
   
   if(player_id == 2){
-    
-    
+    //mahoraga
+    if(document.getElementById("name_player1").innerHTML.includes("Mahoraga")){
+      document.getElementsByClassName("defesa")[1].innerHTML = document.getElementsByClassName("ataque")[0].innerHTML ;
+    }
     document.getElementsByClassName("attack_btn")[0].removeAttribute("onclick")
     document.getElementsByClassName("curse_btn")[0].removeAttribute("onclick")
     document.getElementsByClassName("dodge_btn")[0].removeAttribute("onclick")
@@ -818,7 +825,9 @@ function updateAttribute(player_id,index_=0){
     
     
   }
-    
+   
+
+ 
   }, 290);  
 }
 
