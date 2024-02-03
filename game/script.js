@@ -374,7 +374,7 @@ function switch_tool(tool_id,player_id){
         }
      
      //var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
-     var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"," background-image:linear-gradient(240deg, rgb(190, 227, 55), 60%, rgb(160, 145, 25), 90%, rgb(227, 227, 70))"]
+     var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"," background-image:linear-gradient(240deg, rgb(0, 0, 0), 60%, rgb(27, 27, 27), 90%, rgb(27, 27, 27))"]
      var idBackground = 0
     if(characters[id_selected[curIndex[0]]]["estilo"] == "n_humano"){
       idBackground=1;
@@ -455,7 +455,7 @@ function switch_tool(tool_id,player_id){
       }
     
     //var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
-    var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"," background-image:linear-gradient(240deg, rgb(190, 227, 55), 60%, rgb(160, 145, 25), 90%, rgb(227, 227, 70))"] 
+    var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"," background-image:linear-gradient(240deg, rgb(0, 0, 0), 60%, rgb(27, 27, 27), 90%, rgb(27, 27, 27))"] 
     var idBackground = 0
     if(characters[id_selected[curIndex[1]]]["estilo"] == "n_humano"){
       idBackground=1;
@@ -530,7 +530,7 @@ function dodge(player_id){
             colorBorder = "lightgreen"
         }
     //var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
-    var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))","  background-image:linear-gradient(240deg, rgb(190, 227, 55), 60%, rgb(160, 145, 25), 90%, rgb(227, 227, 70))"]
+    var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"," background-image:linear-gradient(240deg, rgb(0, 0, 0), 60%, rgb(27, 27, 27), 90%, rgb(27, 27, 27))"]
     var idBackground = 0
      var idBackground2 = 0
     if(characters[id_selected[curIndex[0]]]["estilo"] == "n_humano"){
@@ -563,7 +563,7 @@ function dodge(player_id){
             
         }
     //var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
-    var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"," background-image:linear-gradient(240deg, rgb(190, 227, 55), 60%, rgb(160, 145, 25), 90%, rgb(227, 227, 70))"]
+    var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"," background-image:linear-gradient(240deg, rgb(0, 0, 0), 60%, rgb(27, 27, 27), 90%, rgb(27, 27, 27))"]
     var idBackground = 0
      var idBackground2 = 0
     if(characters[id_selected[curIndex[0]]]["estilo"] == "n_humano"){
@@ -689,7 +689,7 @@ function updateOnCard(index_,player_id){
 
     current_player_id = 1 
     
-    var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))","linear-gradient(240deg, rgb(190, 227, 55), 60%, rgb(160, 145, 25), 90%, rgb(227, 227, 70))"]
+    var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))","linear-gradient(240deg, rgb(0, 0, 0), 60%, rgb(27, 27, 27), 90%, rgb(27, 27, 27))"]
      var idBackground2 = 0
     //if(characters[id_selected[curIndex[1]]]["estilo"] == "n_humano"){
     //  idBackground=1
@@ -719,7 +719,7 @@ function updateOnCard(index_,player_id){
      current_player_id = 0
 
     //var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
-    var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))","linear-gradient(240deg, rgb(190, 227, 55), 60%, rgb(160, 145, 25), 90%, rgb(227, 227, 70))"]
+    var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))","linear-gradient(240deg, rgb(0, 0, 0), 60%, rgb(27, 27, 27), 90%, rgb(27, 27, 27))"]
     var idBackground = 0
      //var idBackground2 = 0
     if(characters[id_selected[curIndex[1]]]["estilo"] == "n_humano"){
@@ -834,7 +834,7 @@ function updateAttribute(player_id,index_=0){
             colorBorder = "lightgreen";
         }
     
-    var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))","background-image:linear-gradient(240deg, rgb(212, 227, 55), 20%, rgb(182, 145, 25), 50%, rgb(227, 227, 70))"]
+    var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))","background-image:linear-gradient(240deg, rgb(0, 0, 0), 60%, rgb(27, 27, 27), 90%, rgb(27, 27, 27))"]
      var idBackground = 0
      var idBackground2 = 0
     if(characters[id_selected[curIndex[0]]]["estilo"] == "n_humano"){
@@ -884,7 +884,7 @@ function updateAttribute(player_id,index_=0){
           
         }
      
-     var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"," background-image:linear-gradient(240deg, rgb(190, 227, 55), 60%, rgb(160, 145, 25), 90%, rgb(227, 227, 70))"]
+     var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"," background-image:linear-gradient(240deg, rgb(0, 0, 0), 60%, rgb(27, 27, 27), 90%, rgb(27, 27, 27))"]
      var idBackground = 0
      var idBackground2 = 0
     if(characters[id_selected[curIndex[1]]]["estilo"] == "n_humano"){
@@ -1093,7 +1093,7 @@ function calc_damage(type_damage, player_id){
         document.getElementsByClassName("special_btn")[i].removeAttribute("onclick")
       
       //var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
-      var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))","linear-gradient(240deg, rgb(190, 227, 55), 60%, rgb(160, 145, 25), 90%, rgb(227, 227, 70))"]
+      var backgroundColor = ["linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))","linear-gradient(240deg, rgb(0, 0, 0), 60%, rgb(27, 27, 27), 90%, rgb(27, 27, 27))"]
       //var idBackground = 0
        var idBackground2 = 0
       if(characters[id_selected[curIndex[i]]]["estilo"] == "n_humano"){
