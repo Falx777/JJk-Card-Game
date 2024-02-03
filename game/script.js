@@ -102,6 +102,10 @@ function curse(player_id){
     ResizeAttack = "Width 0.4s"
     timeResize = "350"
   }
+  if(window.innerHeight >= 800){
+    ResizeAttack = "Tablet 0.4s"
+    timeResize = "350"
+  }
   var crtTool
   if(player_id ==1 ){
     crtTool = current_tool1
@@ -170,6 +174,10 @@ function spec(player_id){
     timeResize = "350"
   }
 
+  if(window.innerHeight >= 800){
+    ResizeAttack = "Tablet 0.4s"
+    timeResize = "350"
+  }
   
 
   if(player_id ==1 ){
@@ -244,6 +252,15 @@ function attack(player_id){
     if(mode==1){
       ResizeAttack = "Width_ 0.4s"
     }
+  }
+
+  if(window.innerHeight >= 800){
+    ResizeAttack = "Tablet 0.4s"
+    timeResize = "550"
+    if(mode==1){
+      ResizeAttack = "Tablet_ 0.4s"
+    }
+
   }
   
  if(player_id ==1){ 
@@ -349,6 +366,12 @@ function switch_tool(tool_id,player_id){
       toolsp1[tool_id-1] = temp_tool
     
       var colorBorder="lightgray";
+      
+      if(document.getElementById("name_player1").innerHTML.includes("Mahoraga") || document.getElementById("name_player2").innerHTML.includes("Mahoraga")){
+        colorBorder="yellow";
+      }
+
+
       if(vidaRound[0]/2 > parseInt(document.getElementsByClassName("life")[1].innerHTML) && (parseInt(document.getElementsByClassName("energiaA")[1].innerHTML) < 0 || parseInt(current_tool1["energiaA"]) < 0)){
             colorBorder = "lightgreen";
         }
@@ -423,6 +446,10 @@ function switch_tool(tool_id,player_id){
       toolsp2[tool_id-1] = temp_tool
     
           var colorBorder ="lightgray"
+
+          if(document.getElementById("name_player1").innerHTML.includes("Mahoraga") || document.getElementById("name_player2").innerHTML.includes("Mahoraga")){
+            colorBorder="yellow";
+          }
       if(vidaRound[1]/2 > parseInt(document.getElementsByClassName("life")[0].innerHTML) && (parseInt(document.getElementsByClassName("energiaA")[0].innerHTML) < 0 || parseInt(current_tool2["energiaA"]) < 0)){
             colorBorder = "lightgreen";
             
@@ -518,7 +545,7 @@ function dodge(player_id){
   }
 
     if(player_id==2){
-      var colorBorder ="lightgray"
+      var colorBorder ="lightgray"  
     if(vidaRound[1]/2 > parseInt(document.getElementsByClassName("life")[0].innerHTML) && (parseInt(document.getElementsByClassName("energiaA")[0].innerHTML) < 0 || parseInt(current_tool2["energiaA"]) < 0)){
             colorBorder = "lightgreen";
             
@@ -710,15 +737,22 @@ function end_game(status){
   if(window.innerWidth <= 400){
         clsSpam = "end_game_imageWidth"
     
+  }else  if(window.innerHeight >= 800){
+    clsSpam = "end_game_imageTablet"
   }else{
     clsSpam = "end_game_image"
   }
     document.body.innerHTML += "<span class='end_game'><img src='"+win+"' alt='' class="+clsSpam+" onclick=' reset()'> </span>";
     document.getElementsByClassName("end_game")[0].style.backgroundImage = walp[status]
 
-    if(mode == 1 && status == 2 && window.innerWidth <= 400){
+    if(mode == 1 && status == 2 && (window.innerWidth <= 400) ){
       document.getElementsByClassName("end_game")[0].style.transform = "rotate(180deg)"
       document.getElementsByClassName("end_game")[0].style.marginLeft = "-35%"
+    }
+
+    if(mode == 1 && status == 2 && (window.innerHeight >= 800) ){
+      document.getElementsByClassName("end_game")[0].style.transform = "rotate(180deg)"
+      document.getElementsByClassName("end_game")[0].style.marginLeft = "-10%"
     }
 
     document.getElementById("end_game_sound").volume = 0.25
@@ -731,6 +765,9 @@ function updateAttribute(player_id,index_=0){
   
     
     var colorBorder = "lightgray";
+    if(document.getElementById("name_player1").innerHTML.includes("Mahoraga")){
+      colorBorder="yellow";
+    }
   if(player_id == 1){
     //mahoraga
     if(document.getElementById("name_player2").innerHTML.includes("Mahoraga")){
@@ -878,7 +915,7 @@ function calc_damage(type_damage, player_id){
         document.getElementsByClassName("life")[j].innerHTML = vida_oponente - dano
         document.getElementById("vida"+c).value = vida_oponente - dano 
         document.getElementsByClassName("defesa")[j].innerHTML = defesa - 1
-        damage_animation(dano)
+        damage_animation(dano, player_id)
       }else if(type_damage ==2){
         
         if(energiaAmal < 0){
@@ -903,13 +940,13 @@ function calc_damage(type_damage, player_id){
 
               }
             } 
-            damage_animation(dano)
+            damage_animation(dano, player_id)
         }else{
           if(parseInt(crtTool["energiaA"]) < 0){
             document.getElementsByClassName("life")[j].innerHTML = vida_oponente - dano
             document.getElementById("vida"+c).value = vida_oponente - dano
             document.getElementsByClassName("defesa")[j].innerHTML = defesa - 1
-            damage_animation(dano)
+            damage_animation(dano, player_id)
            if( crtTool["energiaA"] +  parseInt(dano) < 0){
               crtTool["energiaA"] =  parseInt(crtTool["energiaA"]) + parseInt(dano)  
              document.getElementById("plus_energiaA"+player_id).innerHTML = crtTool["energiaA"]
@@ -932,7 +969,7 @@ function calc_damage(type_damage, player_id){
             		document.getElementsByClassName("defesa")[j].innerHTML = 0		  
 		  }
             document.getElementsByClassName("energiaA")[i].innerHTML = 0
-            damage_animation(dano - energiaAmal)
+            damage_animation(dano - energiaAmal, player_id)
             
           }
         }else{
@@ -941,7 +978,7 @@ function calc_damage(type_damage, player_id){
             document.getElementById("vida"+c).value = vida_oponente - (dano - parseInt(crtTool["energiaA"]))
             document.getElementsByClassName("defesa")[j].innerHTML = 0
             var dmg =   parseInt(dano) - parseInt(crtTool["energiaA"])
-            damage_animation((dmg))
+            damage_animation((dmg), player_id)
               crtTool["energiaA"] = 0
               document.getElementById("plus_energiaA"+player_id).innerHTML = " " 
               
@@ -1031,9 +1068,17 @@ function calc_damage(type_damage, player_id){
   
 }
 
-function damage_animation(value_damage){
+function damage_animation(value_damage, player_id){
   document.getElementById("damageOutput").innerHTML = "-"+value_damage
-  document.getElementById("damageOutput").style.animation = "damageAnimation 0.5s"
+  var typeDamageAnim = ""
+  if(mode == 1 && (window.innerWidth <= 400 || window.innerHeight >= 800)  ){
+    if(player_id ==2){
+      typeDamageAnim = "2"
+    }
+
+  }
+
+  document.getElementById("damageOutput").style.animation = "damageAnimation"+typeDamageAnim+" 0.5s"
    setTimeout(() => {
      document.getElementById("damageOutput").style.animation= "none";
 }, 500);  

@@ -4,6 +4,7 @@ body{
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
+  
 }
 
 @keyframes spam {
@@ -17,6 +18,14 @@ body{
   30%{opacity:1}
   90%{opacity:1}
   99%{opacity:0;transform:rotate(0deg)} 
+  100%{visibility:hidden;}
+}
+
+@keyframes damageAnimation2 {
+  0%{opacity:0; transform:rotate(240deg);visibility:visible;}
+  30%{opacity:1}
+  90%{opacity:1}
+  99%{opacity:0;transform:rotate(180deg)} 
   100%{visibility:hidden;}
 }
   
@@ -601,12 +610,276 @@ td pre{
   
 }
 
+/*tablet*/
+@media screen and (min-height: 800px){
+  body{
+    overflow: hidden;
+    transform: scale(1);
+    margin-top:5.5%;
+    position:fixed;
+  }
+  
+  
+  .end_game{
+  position:absolute;
+    height:740%;
+    width:100%;
+    margin-top:-11%;
+    margin-left:-10%;
+  }
+  
+  
+  
+  .player1{
+    position:absolute; 
+    left:-71.5%;
+    top:140%;
+    margin-top:50%;
+  }
+  
+  .space_player2{
+   transform:translate(0%,65%) rotate(180deg);
+  }
+  
+  .card_player2{
+    transform:translate(-190%,130%) rotate(0deg);
+  }
+  
+  .card_player2:hover{
+    transform:translate(-190%,115%) rotate(0deg) scale(1.2);
+  }
+  
+  .space_player1{
+    transform:translate(98%,-25%);  
+  }
+  
+  .player_card_on{
+    position:absolute; 
+    left:70%;
+    bottom:25%;
+  }
+  
+  .player2_card{
+    transform:translate(0%,-20%);
+    
+  }
+  
+  .player2_card:hover{
+    z-index:9999;
+  }
+  
+  .text_on{
+  margin-top:-11%;
+  margin-inline:-5%;
+  padding:3%;
+  font-size:15px;
+  font-family:fantasy;
+}
+  
+  .deck_player1{
+    position:absolute;
+    left:16%;
+    top:528%;
+  }
+  
+  .deck_player1 div{
+  margin-left:-7%;
+  }
+  
+  .deck_player2_flip{
+    transform:translate(-60%,0%) rotate(180deg);
+    margin-top:9%;
+  }
+  
+  .deck_player2_flip div{
+    margin-left:-7%;
+  }
+  
+  .front:hover{
+	  margin-top:-30%;
+    transition: 0.5s;
+  }
+  
+  .back{
+    margin-top:-30%;
+    transition: 0.5s;
+  }
+  
+  .btn2 h3, .btn1 h3{
+    font-family:arial;
+  }
+  .btn2 h3{
+  left:-10%;
+}
+  .spc_btn2 h3{
+    left:-8%;
+  }
+  
+  .atk_btn2 h3{
+    left:8%;
+  }
+  
+  .crs_btn2 h3{
+    left:-24%;
+  }
+  
+  .inst_btn2 h3{
+    left:-24%;
+  }
+  
+  .center{
+    top:450%;
+    visibility:hidden;
+  }
+  
+  .tools_player2{
+  transform: translate(71%,190%);
+}
 
+.tools_player1{
+  position:absolute;
+  margin-left:-46%;
+  top:500%;
+} 
+ 
+  /*
+  .tools_player2 div{
+  margin-right: -5%;
+}
+  
+ .tools_player1 div{
+  margin-right: -5%;
+}
+  */
+
+  /*
+  .tools_player2 div img{
+    transform: rotate(180deg);
+  }
+  */
+  
+    .select_card{
+      
+    margin-top:-160%;
+    padding:10px;
+      
+  }
+  
+  .btn2{
+    transform:translate(180px,0px);  
+  }
+  
+  .btn1{
+    transform:translate(-120px,0px);  
+  }
+  
+   .btn1:hover{
+    transform:translate(-120px,0px) scale(1.2);  
+  }
+  
+  .btn1:active{
+    transform:translate(-120px,0px) scale(0.8);  
+  }
+  
+  .space_player1 .tool_btn{
+    margin-left:-0.5%;
+    transform:translate(20px,-95px);
+    transition:0.5s;
+  }
+  
+  .tool_btn{
+    transform:translate(-250px,-90px);
+    transition:0.5s;
+    margin-left:-0.5%;
+  }
+  
+  .tool_btn:hover{
+    transform: translate(-250px,-90px) scale(1.2);
+  }
+   
+  .space_player1 .tool_btn:hover{
+    transform: translate(20px,-95px) scale(1.2);
+  }
+
+  .tool_btn:active{
+    transform: translate(-250px,-90px) scale(0.8);
+  }
+  
+  .space_player1 .tool_btn:active{
+    transform: translate(20px,-95px) scale(0.8);
+  }
+  
+  .space_player2 .tool_btn{
+    margin-left:-0.5%;
+  }
+  
+
+  #damageOutput{
+  position:absolute;
+  padding:10%;
+  left:5%;
+  top:245%;
+} 
+  
+  .card_player2_{
+    transform:translate(-210%,130%) rotate(180deg);
+  }
+
+ .card_player2_:hover{
+    transform:translate(-210%,130%) rotate(180deg) scale(1.2);
+  }
+
+  
+  #damageOutput{
+    position:absolute;
+    padding:10%;
+    left:31%;
+    top:245%;
+  } 
+
+}
+/*fim Tablet */
+
+/*animaçao tablet */
+
+@keyframes arrow_attack1Tablet {
+  from{transform: translate(80%,-90%);visibility:visible}
+  to{transform: translate(-70%,-115%);} 
+}
+
+ @keyframes arrow_attack2Tablet {
+  
+  from{transform: translate(-120%,-115%) ;visibility:visible}
+  to{transform: translate(20%,-90%)} 
+}
+
+@keyframes move_toolTablet {
+  from{transform:translate(0%,-170px)}
+  to{transform:translate(-230%,-150px);}
+}
+
+@keyframes move_tool2Tablet {
+  from{transform:translate(0%,-170px);}
+  to{transform:translate(100%,70px);}
+}
+
+@keyframes move_tool2Tablet_{
+  from{transform:translate(0%,-170px);}
+
+to{transform:translate(-250%,-100px)}
+}
+
+@keyframes move_toolTablet_{
+from{transform:translate(0%,-170px);}
+
+to{transform:translate(-250%,-100px)}
+
+}
+
+
+/* fim animaçao tablet */
 
  @keyframes arrow_attack1Width {
-   /*
-   from{transform: translate(300%,0%);visibility:visible}
-  to{transform: translate(-350%,-70%);} */
   from{transform: translate(-80%,-90%);visibility:visible}
   to{transform: translate(-190%,-115%);} 
 }
@@ -934,6 +1207,18 @@ td pre{
 }
 
 .end_game_imageWidth{
+  width:650px;
+  height:120px;
+  margin-top:80%;
+ background-image: radial-gradient(circle, rgb(150,50,50),rgb(200,50,50),transparent);
+  border-style: solid none solid none ;
+  border-width:10px;
+  margin-left:5%;
+  transform:scale(0.7);
+  animation:spamWidth 3s;
+}
+
+.end_game_imageTablet{
   width:650px;
   height:120px;
   margin-top:80%;
