@@ -28,15 +28,16 @@ characters = [{nome: 'Young Gojo', vida: 150, energiaA: -300, energiaAR:0, defes
              {nome: 'Kamo', vida: 140, energiaA: -120, energiaAR:0, defesa: 15, ataque: 15, estilo:'humano', id:27},
 	     {nome: 'Dagon', vida: 160, energiaA: -150, energiaAR:0, defesa: 25, ataque: 25, estilo:'n_humano', id:28},
 	     {nome: 'Muta', vida: 60, energiaA: -600, energiaAR:0, defesa: 30, ataque: 20, estilo:'humano', id:29},
-	     	{nome: 'Haruta', vida: 400, energiaA: -50, energiaAR:0, defesa: 0, ataque: 5, estilo:'humano', id:30},
-             {nome: 'Kenjaku', vida: 250, energiaA: -400, energiaAR:0, defesa: 30, ataque: 60, estilo:'n_humano', id:31},
-             {nome: 'Gojo (Adult)', vida: 250, energiaA: -500, energiaAR:250, defesa: 45, ataque: 75, estilo:'humano', id:32},
-             {nome: 'Sukuna (20 f)', vida: 250, energiaA: -450, energiaAR:225, defesa: 30, ataque: 80, estilo:'humano', id:33},
-             {nome: 'Rika', vida: 250, energiaA: -350, energiaAR:0, defesa: 28, ataque: 70, estilo:'n_humano', id:34},
-             {nome: 'Yuta', vida: 250, energiaA: -600, energiaAR:300, defesa: 30, ataque: 80, estilo:'humano', id:35},
-	     {nome: 'Mahoraga', vida: 250, energiaA: -300, energiaAR:0, defesa: 0, ataque: 75, estilo:'n_humano', id:36},
-	     {nome: 'Takaba', vida: 200, energiaA: -250, energiaAR:100, defesa: 30, ataque: 60, estilo:'humano', id:37},
-       {nome: 'Higuruma', vida: 200, energiaA: -100, energiaAR:00, defesa: 30, ataque: 50, estilo:'humano', id:38}];
+       {nome: 'Uraume', vida: 170, energiaA: -180, energiaAR:90, defesa: 20, ataque: 20, estilo:'humano', id:30},
+	     	{nome: 'Haruta', vida: 400, energiaA: -50, energiaAR:0, defesa: 0, ataque: 5, estilo:'humano', id:31},
+             {nome: 'Kenjaku', vida: 250, energiaA: -400, energiaAR:0, defesa: 30, ataque: 60, estilo:'n_humano', id:32},
+             {nome: 'Gojo (Adult)', vida: 250, energiaA: -500, energiaAR:250, defesa: 45, ataque: 75, estilo:'humano', id:33},
+             {nome: 'Sukuna (20 f)', vida: 250, energiaA: -450, energiaAR:225, defesa: 30, ataque: 80, estilo:'humano', id:34},
+             {nome: 'Rika', vida: 250, energiaA: -350, energiaAR:0, defesa: 28, ataque: 65, estilo:'n_humano', id:35},
+             {nome: 'Yuta', vida: 250, energiaA: -600, energiaAR:300, defesa: 30, ataque: 75, estilo:'humano', id:36},
+	     {nome: 'Mahoraga', vida: 250, energiaA: -300, energiaAR:0, defesa: 0, ataque: 75, estilo:'n_humano', id:37},
+	     {nome: 'Takaba', vida: 200, energiaA: -250, energiaAR:100, defesa: 30, ataque: 60, estilo:'humano', id:38},
+       {nome: 'Higuruma', vida: 200, energiaA: -100, energiaAR:00, defesa: 30, ataque: 50, estilo:'humano', id:39}];
 
 cursed_tools = [{energiaA: -40, ataque: 5, id:1,life:45}, {energiaA: -60, ataque: 10, id:2,life:70}, {energiaA: -60, ataque: 10, id:3,life:70},
                {energiaA: -100, ataque: 0, id:4,life:100}, {energiaA: -40, ataque: 15, id:5,life:55}, {energiaA: -30, ataque: 5, id:6,life:35},
@@ -118,18 +119,24 @@ function curse(player_id){
    var energiaAmal = document.getElementsByClassName("energiaA")[1].innerHTML
    var vidaPlayer = document.getElementsByClassName("life")[1].innerHTML   
 
-   if(document.getElementById("name_player1").innerHTML.includes("Choso") || document.getElementById("name_player1").innerHTML.includes("Kamo") ){
+   if(document.getElementById("name_player1").innerHTML.includes("Choso") || document.getElementById("name_player1").innerHTML.includes("Kamo") || document.getElementById("name_player1").innerHTML.includes("Uraume")){
     document.getElementsByClassName("img_arrow")[0].src = "Image characters/blood_gif.gif"
   }
+
+
    if((energiaAmal < 0 || parseInt(crtTool["energiaA"]) < 0 ) && vidaPlayer > 0){
       // alteração cor  
       document.getElementById("arrow").style.cssText = "animation:arrow_attack1"+ResizeAttack+";display:block";
       //document.getElementById("arrow").style.cssText = "animation:arrow_attack1"+ResizeAttack+";display:block; filter:hue-rotate("+-180+"deg) contrast(400%);";
         document.getElementsByClassName("img_arrow")[0].style.cssText = "transform:rotate(120deg) scale(0.7);"
+              
+        if( document.getElementById("name_player1").innerHTML.includes("Uraume")){
+          document.getElementsByClassName("img_arrow")[0].style.filter = "hue-rotate(205deg) brightness(150%)"
+        }
 	    document.getElementById("sound_curse").volume = 0.4
         document.getElementById("sound_curse").play()
         setTimeout(() => {
-        document.getElementById("arrow").style.cssText = "display:none";
+        document.getElementById("arrow").style.cssText = "display:none; filter: hue-rotate(0deg)";
           flashAnimation(0)
           calc_damage(2,1)
           document.getElementsByClassName("img_arrow")[0].src = "Image characters/fire_gif.gif"
@@ -146,17 +153,21 @@ function curse(player_id){
     var energiaAmal = document.getElementsByClassName("energiaA")[0].innerHTML
     var vidaPlayer = document.getElementsByClassName("life")[0].innerHTML   
 
-    if(document.getElementById("name_player2").innerHTML.includes("Choso") || document.getElementById("name_player2").innerHTML.includes("Kamo") ){
+    if(document.getElementById("name_player2").innerHTML.includes("Choso") || document.getElementById("name_player2").innerHTML.includes("Kamo") ||  document.getElementById("name_player2").innerHTML.includes("Uraume") ){
       document.getElementsByClassName("img_arrow")[0].src = "Image characters/blood_gif.gif"
     }
+
 
     if((energiaAmal < 0 || parseInt(crtTool["energiaA"]) < 0) & vidaPlayer > 0){
       document.getElementById("arrow").style.cssText = "animation:arrow_attack2"+ResizeAttack+";display:block;";
       document.getElementsByClassName("img_arrow")[0].style.cssText = "transform:rotate(290deg) scale(0.7);"
+      if( document.getElementById("name_player2").innerHTML.includes("Uraume")){
+        document.getElementsByClassName("img_arrow")[0].style.filter = "hue-rotate(205deg) brightness(150%)"
+      }
 	     document.getElementById("sound_curse").volume = 0.4
         document.getElementById("sound_curse").play()
    setTimeout(() => {
-       document.getElementById("arrow").style.cssText = "display:none";
+       document.getElementById("arrow").style.cssText = "display:none; filter: hue-rotate(0deg)";
        flashAnimation(1)
            calc_damage(2,2)
            document.getElementsByClassName("img_arrow")[0].src = "Image characters/fire_gif.gif"
@@ -200,6 +211,10 @@ function spec(player_id){
       }
       document.getElementById("arrow").style.cssText = "animation:arrow_attack1"+ResizeAttack+";display:block; filter:hue-rotate("+effect+"deg) contrast(200%);";
 
+      if(document.getElementById("name_player1").innerHTML.includes("Yuki")){
+        document.getElementById("arrow").style.cssText = "animation:arrow_attack1"+ResizeAttack+";display:block; filter:grayscale(100%) contrast(200%) brightness(30%);";
+      }
+
       document.getElementsByClassName("img_arrow")[0].style.cssText = "transform:rotate(120deg) scale(0.7);"
       
       
@@ -230,7 +245,9 @@ function spec(player_id){
       }
       
       document.getElementById("arrow").style.cssText = "animation:arrow_attack2"+ResizeAttack+";display:block; filter:hue-rotate("+effect+"deg) contrast(200%);";
-       
+      if(document.getElementById("name_player2").innerHTML.includes("Yuki")){
+        document.getElementById("arrow").style.cssText = "animation:arrow_attack2"+ResizeAttack+";display:block; filter:grayscale(100%) contrast(200%) brightness(30%);";
+      }
 
       document.getElementsByClassName("img_arrow")[0].style.cssText = "transform:rotate(290deg) scale(0.7);"
      setTimeout(() => {
@@ -608,9 +625,9 @@ var rangeDeck = 0
 document.body.onload = () => {
   
       if(dificulty==1){
-        rangeDeck = 30
+        rangeDeck = 31
       }else{
-        rangeDeck = 38
+        rangeDeck = 39
       }  
        
       //sem as cartas OP:
@@ -1008,8 +1025,8 @@ function calc_damage(type_damage, player_id){
           if(vidaRound[j]/2 > vidaPlayer){
             document.getElementsByClassName("life")[j].innerHTML = vida_oponente - (dano - energiaAmal)
             document.getElementById("vida"+c).value = vida_oponente - (dano - energiaAmal)
-		  if(document.getElementsByClassName("defesa")[j].innerHTML  <= 0){
-			  document.getElementsByClassName("defesa")[j].innerHTML = defesa - 1
+		  if(parseInt(document.getElementsByClassName("defesa")[j].innerHTML)  <= 0){
+			  document.getElementsByClassName("defesa")[j].innerHTML = parseInt(document.getElementsByClassName("defesa")[j].innerHTML) - 1
 		  }else{
             		document.getElementsByClassName("defesa")[j].innerHTML = 0		  
 		  }
@@ -1021,7 +1038,11 @@ function calc_damage(type_damage, player_id){
           if(parseInt(crtTool["energiaA"]) < 0){
             document.getElementsByClassName("life")[j].innerHTML = vida_oponente - (dano - parseInt(crtTool["energiaA"]))
             document.getElementById("vida"+c).value = vida_oponente - (dano - parseInt(crtTool["energiaA"]))
-            document.getElementsByClassName("defesa")[j].innerHTML = 0
+            if(parseInt(document.getElementsByClassName("defesa")[j].innerHTML)  <= 0){
+              document.getElementsByClassName("defesa")[j].innerHTML = parseInt(document.getElementsByClassName("defesa")[j].innerHTML) - 1
+            }else{
+                      document.getElementsByClassName("defesa")[j].innerHTML = 0		  
+            }
             var dmg =   parseInt(dano) - parseInt(crtTool["energiaA"])
             damage_animation((dmg), player_id)
               crtTool["energiaA"] = 0
