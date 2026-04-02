@@ -30,26 +30,29 @@ characters = [{nome: 'Young Gojo', vida: 150, energiaA: -300, energiaAR:0, defes
 	     {nome: 'Muta', vida: 60, energiaA: -600, energiaAR:0, defesa: 30, ataque: 20, estilo:'humano', id:29},
        {nome: 'Uraume', vida: 170, energiaA: -180, energiaAR:90, defesa: 20, ataque: 20, estilo:'humano', id:30},
 	     	{nome: 'Haruta', vida: 400, energiaA: -50, energiaAR:0, defesa: 0, ataque: 5, estilo:'humano', id:31},
-             {nome: 'Kenjaku', vida: 250, energiaA: -400, energiaAR:0, defesa: 30, ataque: 60, estilo:'n_humano', id:32},
+             {nome: 'Kenjaku', vida: 250, energiaA: -400, energiaAR:0, defesa: 30, ataque: 60, estilo:'humano', id:32},
              {nome: 'Gojo (Adult)', vida: 250, energiaA: -500, energiaAR:250, defesa: 45, ataque: 75, estilo:'humano', id:33},
-             {nome: 'Sukuna (20 f)', vida: 250, energiaA: -450, energiaAR:225, defesa: 30, ataque: 80, estilo:'humano', id:34},
+             {nome: 'Sukuna (19 f)', vida: 250, energiaA: -450, energiaAR:225, defesa: 30, ataque: 80, estilo:'humano', id:34},
              {nome: 'Rika', vida: 250, energiaA: -350, energiaAR:0, defesa: 28, ataque: 65, estilo:'n_humano', id:35},
              {nome: 'Yuta', vida: 250, energiaA: -600, energiaAR:300, defesa: 30, ataque: 75, estilo:'humano', id:36},
 	     {nome: 'Mahoraga', vida: 250, energiaA: -300, energiaAR:0, defesa: 0, ataque: 75, estilo:'n_humano', id:37},
 	     {nome: 'Takaba', vida: 200, energiaA: -250, energiaAR:100, defesa: 30, ataque: 60, estilo:'humano', id:38},
-       {nome: 'Higuruma', vida: 200, energiaA: -100, energiaAR:00, defesa: 30, ataque: 50, estilo:'humano', id:39}];
+       {nome: 'Higuruma', vida: 200, energiaA: -100, energiaAR:00, defesa: 30, ataque: 50, estilo:'humano', id:39},
+       {nome: 'Uro', vida: 160, energiaA: -250, energiaAR:00, defesa: 25, ataque: 25, estilo:'humano', id:40},
+       {nome: 'Ryu', vida: 180, energiaA: -700, energiaAR:00, defesa: 18, ataque: 30, estilo:'humano', id:41}];
 
 cursed_tools = [{energiaA: -40, ataque: 5, id:1,life:45}, {energiaA: -60, ataque: 10, id:2,life:70}, {energiaA: -60, ataque: 10, id:3,life:70},
                {energiaA: -100, ataque: 0, id:4,life:100}, {energiaA: -40, ataque: 15, id:5,life:55}, {energiaA: -30, ataque: 5, id:6,life:35},
                {energiaA: -50, ataque: 10, id:7,life:60}, {energiaA: -80, ataque: 0, id:8,life:80}, {energiaA: -80, ataque: 15, id:9,life:95}
-               ,{energiaA: -100, ataque: 20, id:10,life:120},{energiaA: -80, ataque: 12, id:11,life:92},{energiaA: -20, ataque: 20, id:12,life:40}, 
-		{energiaA: -60, ataque: 10, id:13,life:70},{energiaA: 0, ataque: 0, id:14,life:-1}];
+              ,{energiaA: -100, ataque: 20, id:10,life:120},{energiaA: -80, ataque: 12, id:11,life:92},{energiaA: -20, ataque: 20, id:12,life:40}, 
+		          {energiaA: -60, ataque: 10, id:13,life:70},{energiaA: -80, ataque: 18, id:14,life:80},
+              {energiaA: 1, ataque: 0, id:15,life:40},{energiaA: 0, ataque: 0, id:16,life:-1}];
 
-backgroundImages = ['bkg1.png', 'bkg2.png','bkg3.jpg','bkg4.png','bkg5.png']
+backgroundImages = ['bkg1.png', 'bkg2.png','bkg3.jpg','bkg4.png','bkg5.png','bkg6.png','bkg7.png']
 //defesa_mahoraga = 35 antes
 //backgroundImages = ['https://i.redd.it/vr72t8onoaq81.png', 'https://preview.redd.it/i278jvdyli471.png?width=1080&crop=smart&auto=webp&s=818e2415a10376054a2ffa20efd14dac2d049649','https://i.pinimg.com/originals/25/1f/49/251f49b9061e3ef0b3a862135258f151.jpg']
 
-ind_background = Math.floor(Math.random() * 5)
+ind_background = Math.floor(Math.random() * backgroundImages.length)
 
 document.body.style.cssText = "background-image: url("+backgroundImages[ind_background]+");"
 
@@ -57,6 +60,7 @@ document.body.style.cssText = "background-image: url("+backgroundImages[ind_back
 var param = window.location.href
 var mode = 1;
 var dificulty = 1;
+var count_killer_sword = 0
 
 if(window.innerHeight < 650 ){
   document.body.style.transform = "scale(0.7)"
@@ -196,9 +200,14 @@ function spec(player_id){
     if(vidaRound[0]/2 > vidaPlayer && vidaPlayer > 0){
     	document.getElementById("sound_spc1").volume = 0.4
     	document.getElementById("sound_spc1").play()
+      var blur = ""
       var effect = "180"
       if (document.getElementById("name_player1").innerHTML.includes("Gojo (Adult)")){
         effect = "55"
+      }
+      if (document.getElementById("name_player1").innerHTML.includes("Ryu")){
+      //if (document.getElementById("name_player2").innerHTML == ""){
+        effect = "45"
       }
       if(document.getElementById("name_player1").innerHTML.includes("Sukuna")){
         effect = "-150"
@@ -206,10 +215,14 @@ function spec(player_id){
       if(document.getElementById("name_player1").innerHTML.includes("Yuta")){
         effect = "100"
       }
+      if(document.getElementById("name_player1").innerHTML.includes("Uro")){
+        effect = "90"
+        blur = "blur(1.1rem)"
+      }
      if(document.getElementById("name_player1").innerHTML.includes("Mahito")){
         effect = "45"
       }
-      document.getElementById("arrow").style.cssText = "animation:arrow_attack1"+ResizeAttack+";display:block; filter:hue-rotate("+effect+"deg) contrast(200%);";
+      document.getElementById("arrow").style.cssText = "animation:arrow_attack1"+ResizeAttack+";display:block; filter:hue-rotate("+effect+"deg) contrast(200%) "+blur+";";
 
       if(document.getElementById("name_player1").innerHTML.includes("Yuki")){
         document.getElementById("arrow").style.cssText = "animation:arrow_attack1"+ResizeAttack+";display:block; filter:grayscale(100%) contrast(200%) brightness(30%);";
@@ -236,15 +249,27 @@ function spec(player_id){
 	    document.getElementById("sound_spc2").volume = 0.4
       document.getElementById("sound_spc2").play()
       var effect = "180"
+      var blur = ""
       if (document.getElementById("name_player2").innerHTML.includes("Gojo (Adult)")){
       //if (document.getElementById("name_player2").innerHTML == ""){
         effect = "55"
       }
+      if (document.getElementById("name_player2").innerHTML.includes("Ryu")){
+      //if (document.getElementById("name_player2").innerHTML == ""){
+        effect = "55"
+      }
+      if(document.getElementById("name_player2").innerHTML.includes("Uro")){
+        effect = "90"
+        blur = "blur(1.1rem)"
+      }
       if(document.getElementById("name_player2").innerHTML.includes("Sukuna")){
         effect = "-150"
       }
+      if(document.getElementById("name_player2").innerHTML.includes("Mahito")){
+        effect = "45"
+      }
       
-      document.getElementById("arrow").style.cssText = "animation:arrow_attack2"+ResizeAttack+";display:block; filter:hue-rotate("+effect+"deg) contrast(200%);";
+      document.getElementById("arrow").style.cssText = "animation:arrow_attack2"+ResizeAttack+";display:block; filter:hue-rotate("+effect+"deg) contrast(200%) "+blur+";";
       if(document.getElementById("name_player2").innerHTML.includes("Yuki")){
         document.getElementById("arrow").style.cssText = "animation:arrow_attack2"+ResizeAttack+";display:block; filter:grayscale(100%) contrast(200%) brightness(30%);";
       }
@@ -293,7 +318,7 @@ function attack(player_id){
     flashAnimation(0)
     calc_damage(1,1)
     bot()
-    if(current_tool1['id'] == 14){
+    if(current_tool1['id'] == cursed_tools.length){
       document.getElementById("sound_punch").volume = 0.4
         document.getElementById("sound_punch").play()
     }else{
@@ -319,7 +344,7 @@ function attack(player_id){
       document.getElementsByClassName("player1")[0].style.cssText = "z-index:auto;";
     flashAnimation(1)
     calc_damage(1,2)
-    if(current_tool2['id'] == 14){
+    if(current_tool2['id'] == cursed_tools.length){
       document.getElementById("sound_punch").volume = 0.4
         document.getElementById("sound_punch").play()
     }else{
@@ -335,20 +360,21 @@ function attack(player_id){
 }
 
 var toolsp1 = []
-var current_tool1 = cursed_tools[13]
+var current_tool1 = cursed_tools[cursed_tools.length - 1]
 var toolsp2 = []
-var current_tool2 = cursed_tools[13]
+var current_tool2 = cursed_tools[cursed_tools.length - 1]
 function switch_tool(tool_id,player_id){
   document.getElementById("sound_switch").volume = 0.4
   document.getElementById("sound_switch").play()
   if(player_id ==1){
-    
+
     if (tool_id ==1){
 
       image_tool = document.getElementById("tool1_p1").src;
       current_tool = document.getElementById("tool_player1").src;
       document.getElementById("tool_player1").src = image_tool;
       document.getElementById("tool1_p1").src = current_tool;
+
     }
 
     if (tool_id ==2){
@@ -425,6 +451,7 @@ function switch_tool(tool_id,player_id){
     }
   
   if(player_id ==2){
+
     if (tool_id ==1){
       image_tool = document.getElementById("tool1_p2").src;
       current_tool = document.getElementById("tool_player2").src;
@@ -501,6 +528,15 @@ function switch_tool(tool_id,player_id){
       //}
     }
 }
+
+function sound_character(nome,type_voice, volume = 0.80){
+
+  document.getElementById("voice").src="Audio/voice/"+nome+type_voice+".mp3"
+  document.getElementById("voice").preload = "auto";
+  document.getElementById("voice").volume = volume
+  document.getElementById("voice").play()
+}
+
 //trocar
 var countLoss = [0,0]
 function select_card(numberDeck,player_id){
@@ -513,13 +549,14 @@ function select_card(numberDeck,player_id){
     i=1
     updateOnCard(numberDeck-1,player_id)
     updateAttribute(2)
-    
+    sound_character(document.getElementById("name_player1").innerHTML, "1")
   }else if(player_id==2){
     //countLoss[1] += 1;
     i=0
     conc = "_2"
     updateOnCard(numberDeck+6,player_id)
     updateAttribute(1)
+    sound_character(document.getElementById("name_player2").innerHTML, "1")
     bot()   
   }
         for(var l=0; l<14;l++){
@@ -549,7 +586,7 @@ function dodge(player_id){
     //var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
     var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"," background-image:linear-gradient(240deg, rgb(0, 0, 0), 60%, rgb(27, 27, 27), 90%, rgb(27, 27, 27))"]
     var idBackground = 0
-     var idBackground2 = 0
+    var idBackground2 = 0
     if(characters[id_selected[curIndex[0]]]["estilo"] == "n_humano"){
       idBackground2=1
     }
@@ -604,6 +641,7 @@ function dodge(player_id){
     document.getElementsByClassName("player_card_on")[1].style.cssText = "border-color:lightgray;opacity:1";
     document.getElementsByClassName("player_card_on")[0].style.cssText = "border-color: rgb(50,50,252);opacity:0.7";    
     */
+    
   }
   var vidaPlayer1 = document.getElementsByClassName("life")[1].innerHTML   
   var vidaPlayer2 = document.getElementsByClassName("life")[0].innerHTML   
@@ -615,6 +653,63 @@ function dodge(player_id){
 
 
 //-------------------------------------------------------------
+function criarTelaDeInicio() {
+  // 1. Cria o elemento de sobreposição (overlay)
+  const overlay = document.createElement('div');
+  overlay.style.position = 'fixed';
+  overlay.style.top = '0';
+  overlay.style.left = '0';
+  overlay.style.width = '100vw';
+  overlay.style.height = '100vh';
+  overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
+  overlay.style.backdropFilter = 'blur(8px)';
+  overlay.style.WebkitBackdropFilter = 'blur(8px)';
+  overlay.style.zIndex = '9999';
+  overlay.style.display = 'flex';
+  overlay.style.justifyContent = 'center';
+  overlay.style.alignItems = 'center';
+  overlay.style.transition = 'opacity 0.3s ease';
+
+  // 2. Cria o botão (agora como um container transparente)
+  const botaoComecar = document.createElement('button');
+  botaoComecar.style.background = 'solid';
+  botaoComecar.style.borderRadius = '8px';
+  botaoComecar.style.border = 'none';
+  botaoComecar.style.padding = '0';
+  botaoComecar.style.cursor = 'pointer';
+  
+  // 3. Cria a imagem e define seus atributos
+  const imagemComecar = document.createElement('img');
+  imagemComecar.src = 'jjk_font/comecar.png';
+  imagemComecar.alt = 'Começar'; // Necessário para acessibilidade e SEO
+  imagemComecar.style.display = 'block'; // Remove espaçamento extra do inline
+  imagemComecar.style.maxWidth = '200px'; // Descomente e ajuste caso precise fixar o tamanho da imagem
+
+  // Anexa a imagem dentro do botão
+  botaoComecar.appendChild(imagemComecar);
+
+  // 4. Adiciona o evento de clique para remover a tela
+  botaoComecar.addEventListener('click', () => {
+    player_voice_time = Math.floor(Math.random() * 2) + 1
+    setTimeout(() => {
+     sound_character(document.getElementById("name_player"+player_voice_time).innerHTML, "1");
+  }, 500);  
+    overlay.style.opacity = '0';
+    setTimeout(() => {
+      overlay.remove();
+    }, 300);
+  });
+
+  // 5. Monta a estrutura no DOM
+  overlay.appendChild(botaoComecar);
+  document.documentElement.appendChild(overlay);
+  
+}
+
+// Inicialização recomendada
+document.addEventListener('DOMContentLoaded', criarTelaDeInicio);
+
+
 
 //mode_deck = 1
 var id_selected = []
@@ -623,11 +718,11 @@ var names_deck2 = []
 var id_selected_tools = []
 var rangeDeck = 0
 document.body.onload = () => {
-  
+      //criarTelaDeInicio()
       if(dificulty==1){
         rangeDeck = 31
       }else{
-        rangeDeck = 39
+        rangeDeck = characters.length -1
       }  
        
       //sem as cartas OP:
@@ -639,8 +734,8 @@ document.body.onload = () => {
             id_selected.push(nAleatorio);
           }
         }
-        while (id_selected_tools.length < 13) {
-        const nAleatorio = Math.floor(Math.random() * 13) + 1;
+        while (id_selected_tools.length < cursed_tools.length -1) {
+        const nAleatorio = Math.floor(Math.random() * (cursed_tools.length -1)) + 1;
         if (!id_selected_tools.includes(nAleatorio)) {
           id_selected_tools.push(nAleatorio);
         }
@@ -1047,7 +1142,24 @@ function calc_damage(type_damage, player_id){
             damage_animation((dmg), player_id)
               crtTool["energiaA"] = 0
               document.getElementById("plus_energiaA"+player_id).innerHTML = " " 
-              
+            count_killer_sword = 1
+
+            if (player_id == 1){
+              id_tool_by_src1 = document.getElementById("tool_player1").src.slice(-6,-4);
+              if (id_tool_by_src1 == "15"){
+                current_tool1["energiaA"] = 0
+                document.getElementById("plus_energiaA1").innerHTML = current_tool1["energiaA"]
+              }
+            }
+
+            if (player_id == 2){
+              id_tool_by_src2 = document.getElementById("tool_player2").src.slice(-6,-4);
+              if (id_tool_by_src2 == "15"){
+                current_tool2["energiaA"] = 0
+                document.getElementById("plus_energiaA2").innerHTML = current_tool2["energiaA"]
+              }
+            }
+
           }
         } 
       }else if(type_damage ==4){
@@ -1088,6 +1200,8 @@ function calc_damage(type_damage, player_id){
     if(parseInt(document.getElementsByClassName("life")[j].innerHTML) <= 0){
 
        
+        sound_character(document.getElementById("name_player"+player_id).innerHTML, "2")
+
         document.getElementsByClassName("life")[j].innerHTML = 0;
         vidaRound[j]=document.getElementsByClassName("life")[i].innerHTML
         
@@ -1138,7 +1252,17 @@ function calc_damage(type_damage, player_id){
           //}  
     }
     updateAttribute(player_id)
-   
+    id_tool_by_src1 = document.getElementById("tool_player1").src.slice(-6,-4);
+    if (id_tool_by_src1 == "15" && count_killer_sword == 0){
+      current_tool1["energiaA"] = (document.getElementsByClassName("life")[0].innerHTML)*(-1)
+      document.getElementById("plus_energiaA1").innerHTML = current_tool1["energiaA"]
+    }
+
+    id_tool_by_src2 = document.getElementById("tool_player2").src.slice(-6,-4);
+    if (id_tool_by_src2 == "15" && count_killer_sword == 0){
+      current_tool2["energiaA"] = (document.getElementsByClassName("life")[1].innerHTML)*(-1)
+      document.getElementById("plus_energiaA2").innerHTML = current_tool2["energiaA"]
+    }
   
 }
 
@@ -1181,8 +1305,6 @@ function bot(){
       if(vidaPlayer>0){
         
         if(vida_oponente > 0){
-          console.log(vidaRound[1]/2)
-          console.log(vidaPlayer)
            if(vidaRound[1]/2 > vidaPlayer && (energiaAmal < 0 || parseInt(current_tool2["energiaA"]) < 0)){
             if(dificulty != 2 ){
 
@@ -1196,7 +1318,6 @@ function bot(){
                 dodge(2)
               }
             }else if(dificulty == 2 ){
-              console.log("testeENEARM")
               spec(2)
             }
           }else if(energiaAmal < 0 || parseInt(current_tool2["energiaA"]) < 0){
@@ -1237,7 +1358,7 @@ function reset(){
 
 
 
-var id_song = Math.floor(Math.random() * 7) + 1  
+var id_song = Math.floor(Math.random() * 8) + 1  
 document.getElementById("soundtrack").src="Audio/song"+id_song+".mp3"
 document.getElementById("soundtrack").preload = "auto";
 function play_soundtrack( volum = 0.35){
