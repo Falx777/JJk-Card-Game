@@ -28,6 +28,15 @@ body{
   99%{opacity:0;transform:rotate(180deg)} 
   100%{visibility:hidden;}
 }
+
+@keyframes dodgeAnimation {
+  
+  0%{background-image: radial-gradient(circle, rgb(65, 65, 65),rgb(188, 188, 188), transparent,transparent);opacity:0; transform:rotate(360deg);visibility:visible;}
+  30%{opacity:1}
+  90%{opacity:1}
+  99%{opacity:0;transform:rotate(0deg)} 
+  100%{background-image: radial-gradient(circle, rgb(65, 65, 65),rgb(188, 188, 188), transparent,transparent);visibility:hidden;}
+}
   
 
 #damageOutput{

@@ -1,4 +1,4 @@
-characters = [{nome: 'Young Gojo', vida: 150, energiaA: -300, energiaAR:0, defesa: 30, ataque: 30,estilo:'humano', id:0},
+characters = [{nome: 'Young Gojo', vida: 200, energiaA: -250, energiaAR:0, defesa: 30, ataque: 30,estilo:'humano', id:0},
               {nome: 'Young Gojo', vida: 200, energiaA: -250, energiaAR:0, defesa: 30, ataque: 30,estilo:'humano', id:1},
              {nome: 'Itadori', vida: 150, energiaA: -150, energiaAR:0, defesa: 15, ataque: 10, estilo:'humano', id:2},
              {nome: 'Megumi', vida: 150, energiaA: -160, energiaAR:0, defesa: 20, ataque: 8, estilo:'humano', id:3},
@@ -30,7 +30,7 @@ characters = [{nome: 'Young Gojo', vida: 150, energiaA: -300, energiaAR:0, defes
 	     {nome: 'Muta', vida: 60, energiaA: -600, energiaAR:0, defesa: 30, ataque: 20, estilo:'humano', id:29},
        {nome: 'Uraume', vida: 170, energiaA: -180, energiaAR:90, defesa: 20, ataque: 20, estilo:'humano', id:30},
 	     	{nome: 'Haruta', vida: 400, energiaA: -50, energiaAR:0, defesa: 0, ataque: 5, estilo:'humano', id:31},
-             {nome: 'Kenjaku', vida: 250, energiaA: -400, energiaAR:0, defesa: 30, ataque: 60, estilo:'humano', id:32},
+             {nome: 'Kenjaku', vida: 250, energiaA: -400, energiaAR:200, defesa: 30, ataque: 60, estilo:'humano', id:32},
              {nome: 'Gojo (Adult)', vida: 250, energiaA: -500, energiaAR:250, defesa: 45, ataque: 75, estilo:'humano', id:33},
              {nome: 'Sukuna (19 f)', vida: 250, energiaA: -450, energiaAR:225, defesa: 30, ataque: 80, estilo:'humano', id:34},
              {nome: 'Rika', vida: 250, energiaA: -350, energiaAR:0, defesa: 28, ataque: 65, estilo:'n_humano', id:35},
@@ -39,14 +39,19 @@ characters = [{nome: 'Young Gojo', vida: 150, energiaA: -300, energiaAR:0, defes
 	     {nome: 'Takaba', vida: 200, energiaA: -250, energiaAR:100, defesa: 30, ataque: 60, estilo:'humano', id:38},
        {nome: 'Higuruma', vida: 200, energiaA: -100, energiaAR:00, defesa: 30, ataque: 50, estilo:'humano', id:39},
        {nome: 'Uro', vida: 160, energiaA: -250, energiaAR:00, defesa: 25, ataque: 25, estilo:'humano', id:40},
-       {nome: 'Ryu', vida: 180, energiaA: -700, energiaAR:00, defesa: 18, ataque: 30, estilo:'humano', id:41}];
+       {nome: 'Ryu', vida: 180, energiaA: -700, energiaAR:00, defesa: 18, ataque: 30, estilo:'humano', id:41},
+      {nome: 'Naoya', vida: 150, energiaA: -100, energiaAR:00, defesa: 5, ataque: 30, estilo:'humano', id:42},
+      {nome: 'Kirara', vida: 100, energiaA: -100, energiaAR:00, defesa: 30, ataque: 10, estilo:'humano', id:43},
+      {nome: 'Sukuna (15 f)', vida: 220, energiaA: -300, energiaAR:150, defesa: 25, ataque: 40, estilo:'humano', id:44}
+    ];
 
 cursed_tools = [{energiaA: -40, ataque: 5, id:1,life:45}, {energiaA: -60, ataque: 10, id:2,life:70}, {energiaA: -60, ataque: 10, id:3,life:70},
                {energiaA: -100, ataque: 0, id:4,life:100}, {energiaA: -40, ataque: 15, id:5,life:55}, {energiaA: -30, ataque: 5, id:6,life:35},
                {energiaA: -50, ataque: 10, id:7,life:60}, {energiaA: -80, ataque: 0, id:8,life:80}, {energiaA: -80, ataque: 15, id:9,life:95}
               ,{energiaA: -100, ataque: 20, id:10,life:120},{energiaA: -80, ataque: 12, id:11,life:92},{energiaA: -20, ataque: 20, id:12,life:40}, 
 		          {energiaA: -60, ataque: 10, id:13,life:70},{energiaA: -80, ataque: 18, id:14,life:80},
-              {energiaA: 1, ataque: 0, id:15,life:40},{energiaA: 0, ataque: 0, id:16,life:-1}];
+              {energiaA: 1, ataque: 0, id:15,life:40},{energiaA: 3, ataque: 0, id:16,life:100},
+              {energiaA: 0, ataque: 0, id:17,life:-1}];
 
 backgroundImages = ['bkg1.png', 'bkg2.png','bkg3.jpg','bkg4.png','bkg5.png','bkg6.png','bkg7.png']
 //defesa_mahoraga = 35 antes
@@ -245,7 +250,7 @@ function spec(player_id){
     
   if(player_id ==2 ){
     vidaPlayer = document.getElementsByClassName("life")[0].innerHTML
-    if(vidaRound[1]/2 > vidaPlayer && vidaPlayer > 0){
+    if((vidaRound[1]/2 > vidaPlayer) && (vidaPlayer > 0)){
 	    document.getElementById("sound_spc2").volume = 0.4
       document.getElementById("sound_spc2").play()
       var effect = "180"
@@ -415,6 +420,15 @@ function switch_tool(tool_id,player_id){
       if(vidaRound[0]/2 > parseInt(document.getElementsByClassName("life")[1].innerHTML) && (parseInt(document.getElementsByClassName("energiaA")[1].innerHTML) < 0 || parseInt(current_tool1["energiaA"]) < 0)){
             colorBorder = "lightgreen";
         }
+      
+      if(current_tool1['id']==16){
+        if(current_tool1['energiaA'] <=0){
+          document.getElementById("plus_energiaA1").innerHTML = " " 
+        }else{
+          colorBorder = "#ff0080";
+        }
+      }
+      
      
      //var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
      var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"," background-image:linear-gradient(240deg, rgb(0, 0, 0), 60%, rgb(27, 27, 27), 90%, rgb(27, 27, 27))"]
@@ -430,6 +444,7 @@ function switch_tool(tool_id,player_id){
     
     
      document.getElementsByClassName("player_card_on")[1].style.cssText = "border-color:"+colorBorder+";"+backgroundColor[idBackground];
+      
   }
   
   //cor uso ferramenta
@@ -497,6 +512,14 @@ function switch_tool(tool_id,player_id){
             colorBorder = "lightgreen";
             
       }
+
+      if(current_tool2['id']==16){
+        if(current_tool1['energiaA'] <=0){
+         document.getElementById("plus_energiaA1").innerHTML = " " 
+        }else{
+          colorBorder = "#ff0080";
+        }
+      }
     
     //var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"]
     var backgroundColor = ["background-image: linear-gradient(120deg, rgb(0,0,102), 20%, rgb(153, 102, 255), 40%, rgb(0,0,102));","background-image:linear-gradient(240deg, rgb(187,24,27), 20%, rgb(25,3,5), 50%, rgb(178,20,22))"," background-image:linear-gradient(240deg, rgb(0, 0, 0), 60%, rgb(27, 27, 27), 90%, rgb(27, 27, 27))"] 
@@ -531,10 +554,15 @@ function switch_tool(tool_id,player_id){
 
 function sound_character(nome,type_voice, volume = 0.80){
 
-  document.getElementById("voice").src="Audio/voice/"+nome+type_voice+".mp3"
-  document.getElementById("voice").preload = "auto";
-  document.getElementById("voice").volume = volume
-  document.getElementById("voice").play()
+  //document.getElementById("voice").src="Audio/voice/"+nome+type_voice+".mp3"
+  //document.getElementById("voice").preload = "auto";
+  //document.getElementById("voice").volume = volume
+  //document.getElementById("voice").play()
+
+  const audio = new Audio("Audio/voice/" + nome + type_voice + ".mp3");
+  
+  audio.volume = volume;
+  audio.play();
 }
 
 //trocar
@@ -607,6 +635,15 @@ function dodge(player_id){
     document.getElementsByClassName("player_card_on")[0].style.cssText = "border-color:lightgray;opacity:1";
     document.getElementsByClassName("player_card_on")[1].style.cssText = "border-color: rgb(50,50,252);opacity:0.7";   
     */
+
+    // Animação esquivar
+    document.getElementById("damageOutput").innerHTML = "⇼"
+    document.getElementById("damageOutput").style.animation = "dodgeAnimation 0.5s"
+    
+    setTimeout(() => {
+      
+      document.getElementById("damageOutput").style.animation= "none";
+    }, 500);  
     bot()
   }
 
@@ -641,7 +678,9 @@ function dodge(player_id){
     document.getElementsByClassName("player_card_on")[1].style.cssText = "border-color:lightgray;opacity:1";
     document.getElementsByClassName("player_card_on")[0].style.cssText = "border-color: rgb(50,50,252);opacity:0.7";    
     */
-    
+        // Animação esquivar
+    document.getElementById("damageOutput").innerHTML = "⇼"
+    document.getElementById("damageOutput").style.animation = "dodgeAnimation 0.5s"
   }
   var vidaPlayer1 = document.getElementsByClassName("life")[1].innerHTML   
   var vidaPlayer2 = document.getElementsByClassName("life")[0].innerHTML   
@@ -1033,17 +1072,21 @@ function calc_damage(type_damage, player_id){
   var vidaPlayer
   var i, j, c
   var crtTool, danoIni
+  var oponTool
   if(player_id ==1 ){
     i = 1
     j = 0
     c = "2"
     crtTool = current_tool1
+    oponTool = current_tool2
   }
   if(player_id ==2 ){
     i = 0
     j = 1
     c = "1"
     crtTool = current_tool2
+    oponTool = current_tool1
+    
   }
         dano = parseInt(document.getElementsByClassName("ataque")[i].innerHTML)
         vida_oponente = parseInt(document.getElementsByClassName("life")[j].innerHTML)
@@ -1118,21 +1161,49 @@ function calc_damage(type_damage, player_id){
       }else if(type_damage ==3){
         if(energiaAmal < 0){
           if(vidaRound[j]/2 > vidaPlayer){
-            document.getElementsByClassName("life")[j].innerHTML = vida_oponente - (dano - energiaAmal)
-            document.getElementById("vida"+c).value = vida_oponente - (dano - energiaAmal)
+            if(oponTool['id'] != 16 || (oponTool['id'] == 16 && oponTool['energiaA'] <= 0)){
+              document.getElementsByClassName("life")[j].innerHTML = vida_oponente - (dano - energiaAmal)
+              document.getElementById("vida"+c).value = vida_oponente - (dano - energiaAmal)
+            }
 		  if(parseInt(document.getElementsByClassName("defesa")[j].innerHTML)  <= 0){
-			  document.getElementsByClassName("defesa")[j].innerHTML = parseInt(document.getElementsByClassName("defesa")[j].innerHTML) - 1
+        if(oponTool['id'] != 16 || (oponTool['id'] == 16 && oponTool['energiaA'] <= 0)){
+			    document.getElementsByClassName("defesa")[j].innerHTML = parseInt(document.getElementsByClassName("defesa")[j].innerHTML) - 1
+        }
 		  }else{
-            		document.getElementsByClassName("defesa")[j].innerHTML = 0		  
+            if(oponTool['id'] != 16 || (oponTool['id'] == 16 && oponTool['energiaA'] <= 0)){
+                document.getElementsByClassName("defesa")[j].innerHTML = 0		  
+            }
+            		
 		  }
             document.getElementsByClassName("energiaA")[i].innerHTML = 0
             damage_animation(dano - energiaAmal, player_id)
-            
+            if (player_id == 1){
+              if(oponTool['id'] == 16){
+                current_tool2['energiaA'] =  parseInt(current_tool2['energiaA']) -1
+                document.getElementById("plus_energiaA"+j).innerHTML = current_tool2['energiaA']
+                if (current_tool2['energiaA'] <= 0){
+                  document.getElementById("plus_energiaA"+j).innerHTML = ' '
+                }
+              }
+            }
+
+            if (player_id == 2){
+              if(oponTool['id'] == 16){
+                current_tool1['energiaA'] =  parseInt(current_tool1['energiaA']) -1
+                document.getElementById("plus_energiaA"+j).innerHTML = current_tool1['energiaA']
+                if (current_tool1['energiaA'] <= 0){
+                  document.getElementById("plus_energiaA"+j).innerHTML = ' '
+                }
+              }
+            }
           }
         }else{
           if(parseInt(crtTool["energiaA"]) < 0){
-            document.getElementsByClassName("life")[j].innerHTML = vida_oponente - (dano - parseInt(crtTool["energiaA"]))
-            document.getElementById("vida"+c).value = vida_oponente - (dano - parseInt(crtTool["energiaA"]))
+            if(oponTool['id'] != 16 || (oponTool['id'] == 16 && oponTool['energiaA'] <= 0)){
+              document.getElementsByClassName("life")[j].innerHTML = vida_oponente - (dano - parseInt(crtTool["energiaA"]))
+              document.getElementById("vida"+c).value = vida_oponente - (dano - parseInt(crtTool["energiaA"]))
+            }
+            
             if(parseInt(document.getElementsByClassName("defesa")[j].innerHTML)  <= 0){
               document.getElementsByClassName("defesa")[j].innerHTML = parseInt(document.getElementsByClassName("defesa")[j].innerHTML) - 1
             }else{
@@ -1150,6 +1221,13 @@ function calc_damage(type_damage, player_id){
                 current_tool1["energiaA"] = 0
                 document.getElementById("plus_energiaA1").innerHTML = current_tool1["energiaA"]
               }
+              if(oponTool['id'] == 16){
+                current_tool2['energiaA'] =  parseInt(current_tool2['energiaA']) -1
+                document.getElementById("plus_energiaA"+j).innerHTML = current_tool2['energiaA']
+                if (current_tool2['energiaA'] <= 0){
+                  document.getElementById("plus_energiaA"+j).innerHTML = ' '
+                }
+              }
             }
 
             if (player_id == 2){
@@ -1158,10 +1236,18 @@ function calc_damage(type_damage, player_id){
                 current_tool2["energiaA"] = 0
                 document.getElementById("plus_energiaA2").innerHTML = current_tool2["energiaA"]
               }
+              if(oponTool['id'] == 16){
+                current_tool1['energiaA'] =  parseInt(current_tool1['energiaA']) -1
+                document.getElementById("plus_energiaA"+j).innerHTML = current_tool1['energiaA']
+                if (current_tool1['energiaA'] <= 0){
+                  document.getElementById("plus_energiaA"+j).innerHTML = ' '
+                }
+              }
             }
 
           }
         } 
+        
       }else if(type_damage ==4){
         if((vidaRound[j] > vidaPlayer) || (vidaRegen[j] > vidaPlayer)){
           if(document.getElementsByClassName("energiaAR")[i].innerHTML >0){
