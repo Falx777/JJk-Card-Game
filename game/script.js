@@ -82,6 +82,9 @@ if(param.includes("dificuldade=1")){
 	dificulty = 1;
 }else if(param.includes("dificuldade=2")){
 	dificulty = 2;
+  document.getElementById("card_deck1").style.visibility= "hidden"
+  document.getElementById("card_deck7").style.visibility= "hidden"
+
 }else if(param.includes("dificuldade=3")){
 	dificulty = 3;
 }
@@ -244,6 +247,7 @@ function spec(player_id){
     }, timeResize); 
     }else{
        bot()
+       //turn = 1
     }
    
   }
@@ -568,6 +572,7 @@ function sound_character(nome,type_voice, volume = 0.80){
 //trocar
 var countLoss = [0,0]
 function select_card(numberDeck,player_id){
+  dead = false;
   var i = 0
   var conc = ""
   document.getElementById("sound_flip").volume = 0.4
@@ -729,6 +734,7 @@ function criarTelaDeInicio() {
 
   // 4. Adiciona o evento de clique para remover a tela
   botaoComecar.addEventListener('click', () => {
+    toggle_soundtrack()
     player_voice_time = Math.floor(Math.random() * 2) + 1
     setTimeout(() => {
      sound_character(document.getElementById("name_player"+player_voice_time).innerHTML, "1");
@@ -745,10 +751,113 @@ function criarTelaDeInicio() {
   
 }
 
+//botoes no jogo
+var turn = 1
+function keyboard_press(key){
+  
+    switch (key) {
+      case ("Numpad1" || "Digit1"):
+        if (turn == 1){
+          attack(1);
+          turn = 2;
+        }
+
+        break;
+      case ("Numpad2" || "Digit2"):
+        if (turn == 1){
+          curse(1);
+          turn = 2;
+        }
+        break;
+      case ("Numpad3" || "Digit3"):
+      if (turn == 1){  
+        turn = 2;
+        dodge(1);
+      }
+        break;
+      case ("Numpad4" || "Digit4"):
+        if (turn == 1){
+          turn = 2;
+          spec(1);
+
+        }
+        break;
+      case ("Numpad7" || "Digit7"):
+        if (turn == 1){
+          turn = 1;
+          switch_tool(1,1);
+        }
+        break;
+      case ("Numpad8" || "Digit8"):
+      if (turn == 1){    
+        turn = 1;
+        switch_tool(2,1)
+      }
+        break;
+      case ("Numpad9" || "Digit9"):
+        if (turn == 1){ 
+          turn = 1;
+          switch_tool(3,1)
+        }
+        break;
+      case ("KeyA"):
+        if (turn == 2){
+        attack(2);
+        turn = 1;
+        }
+        break;
+      case ("KeyS"):
+        if (turn == 2){
+        curse(2);
+        turn = 1;
+        }
+        break;
+      case ("KeyD"):
+      if (turn == 2){  
+       dodge(2);
+        turn = 1;
+      }
+        break;
+      case ("KeyF"):
+        if (turn == 2){
+        spec(2);
+        turn =1;
+        }
+        break;
+      case ("KeyQ"):
+        if (turn == 2){
+        turn = 2;
+        switch_tool(1,2);
+        }
+        break;
+      case ("KeyW"):
+        if (turn == 2){  
+        turn =2 ;
+        switch_tool(2,2);
+        }
+        break;
+      case ("KeyE"):
+        if (turn == 2){
+        turn =2;
+        switch_tool(3,2);
+        }
+        break;
+    }
+    
+    
+}
+
 // Inicialização recomendada
 document.addEventListener('DOMContentLoaded', criarTelaDeInicio);
 
 
+var dead = false
+//
+window.addEventListener("keydown", (e) => {
+    if(!dead){
+      keyboard_press(e.code);
+    }  
+    });
 
 //mode_deck = 1
 var id_selected = []
@@ -1215,19 +1324,20 @@ function calc_damage(type_damage, player_id){
             damage_animation((dmg), player_id)
               crtTool["energiaA"] = 0
               document.getElementById("plus_energiaA"+player_id).innerHTML = " " 
-            count_killer_sword = 1
+
 
             if (player_id == 1){
               id_tool_by_src1 = document.getElementById("tool_player1").src.slice(-6,-4);
               if (id_tool_by_src1 == "15"){
+                count_killer_sword = 1
                 current_tool1["energiaA"] = 0
                 document.getElementById("plus_energiaA1").innerHTML = current_tool1["energiaA"]
               }
               if(oponTool['id'] == 16){
                 current_tool2['energiaA'] =  parseInt(current_tool2['energiaA']) -1
-                document.getElementById("plus_energiaA"+c).innerHTML = current_tool2['energiaA']
+                document.getElementById("plus_energiaA2").innerHTML = current_tool2['energiaA']
                 if (current_tool2['energiaA'] <= 0){
-                  document.getElementById("plus_energiaA"+c).innerHTML = ' '
+                  document.getElementById("plus_energiaA2").innerHTML = ' '
                 }
                 
               }
@@ -1236,14 +1346,16 @@ function calc_damage(type_damage, player_id){
             if (player_id == 2){
               id_tool_by_src2 = document.getElementById("tool_player2").src.slice(-6,-4);
               if (id_tool_by_src2 == "15"){
+                count_killer_sword = 1
                 current_tool2["energiaA"] = 0
                 document.getElementById("plus_energiaA2").innerHTML = current_tool2["energiaA"]
+                
               }
               if(oponTool['id'] == 16){
                 current_tool1['energiaA'] =  parseInt(current_tool1['energiaA']) -1
-                document.getElementById("plus_energiaA"+c).innerHTML = current_tool1['energiaA']
+                document.getElementById("plus_energiaA1").innerHTML = current_tool1['energiaA']
                 if (current_tool1['energiaA'] <= 0){
-                  document.getElementById("plus_energiaA"+c).innerHTML = ' '
+                  document.getElementById("plus_energiaA1").innerHTML = ' '
                 }
               }
             }
@@ -1298,10 +1410,12 @@ function calc_damage(type_damage, player_id){
        if(player_id ==1 ){
          
          for(var l=7; l<14;l++){
+            dead = true;
             document.getElementsByClassName("select_card")[l].style.visibility= "visible";
           }          
        }else{
          for(var l=0; l<7;l++){
+            dead = true;
             document.getElementsByClassName("select_card")[l].style.visibility= "visible";
           }
 
@@ -1373,9 +1487,9 @@ function damage_animation(value_damage, player_id){
 
 var selectedBotCard = 0
 function bot(){
+    turn = 1;
+    dead = false;
   if(mode==2){
-    
-  
   //de zero a dez
   var action_bot = Math.floor(Math.random() * 11)  
   var tool_bot = Math.floor(Math.random() * 3 + 1) 
