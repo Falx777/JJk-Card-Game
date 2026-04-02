@@ -1159,6 +1159,7 @@ function calc_damage(type_damage, player_id){
         }
 
       }else if(type_damage ==3){
+       
         if(energiaAmal < 0){
           if(vidaRound[j]/2 > vidaPlayer){
             if(oponTool['id'] != 16 || (oponTool['id'] == 16 && oponTool['energiaA'] <= 0)){
@@ -1180,19 +1181,20 @@ function calc_damage(type_damage, player_id){
             if (player_id == 1){
               if(oponTool['id'] == 16){
                 current_tool2['energiaA'] =  parseInt(current_tool2['energiaA']) -1
-                document.getElementById("plus_energiaA"+j).innerHTML = current_tool2['energiaA']
+                document.getElementById("plus_energiaA"+c).innerHTML = current_tool2['energiaA']
                 if (current_tool2['energiaA'] <= 0){
-                  document.getElementById("plus_energiaA"+j).innerHTML = ' '
+                  document.getElementById("plus_energiaA"+c).innerHTML = ' '
                 }
+                //bot()
               }
             }
 
             if (player_id == 2){
               if(oponTool['id'] == 16){
                 current_tool1['energiaA'] =  parseInt(current_tool1['energiaA']) -1
-                document.getElementById("plus_energiaA"+j).innerHTML = current_tool1['energiaA']
+                document.getElementById("plus_energiaA"+c).innerHTML = current_tool1['energiaA']
                 if (current_tool1['energiaA'] <= 0){
-                  document.getElementById("plus_energiaA"+j).innerHTML = ' '
+                  document.getElementById("plus_energiaA"+c).innerHTML = ' '
                 }
               }
             }
@@ -1223,10 +1225,11 @@ function calc_damage(type_damage, player_id){
               }
               if(oponTool['id'] == 16){
                 current_tool2['energiaA'] =  parseInt(current_tool2['energiaA']) -1
-                document.getElementById("plus_energiaA"+j).innerHTML = current_tool2['energiaA']
+                document.getElementById("plus_energiaA"+c).innerHTML = current_tool2['energiaA']
                 if (current_tool2['energiaA'] <= 0){
-                  document.getElementById("plus_energiaA"+j).innerHTML = ' '
+                  document.getElementById("plus_energiaA"+c).innerHTML = ' '
                 }
+                
               }
             }
 
@@ -1238,9 +1241,9 @@ function calc_damage(type_damage, player_id){
               }
               if(oponTool['id'] == 16){
                 current_tool1['energiaA'] =  parseInt(current_tool1['energiaA']) -1
-                document.getElementById("plus_energiaA"+j).innerHTML = current_tool1['energiaA']
+                document.getElementById("plus_energiaA"+c).innerHTML = current_tool1['energiaA']
                 if (current_tool1['energiaA'] <= 0){
-                  document.getElementById("plus_energiaA"+j).innerHTML = ' '
+                  document.getElementById("plus_energiaA"+c).innerHTML = ' '
                 }
               }
             }
